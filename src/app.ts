@@ -1,0 +1,14 @@
+import express, { Request, Response } from "express";
+import resumeRouter from "./routes/analyzeresume"
+import uploadRouter from "./routes/fileUpload"
+import helmet from "helmet";
+import cors from 'cors'
+const app = express();
+app.use(express.json());
+app.use(helmet())
+app.use(cors())
+
+app.use("/resume",resumeRouter)
+app.use("/file",uploadRouter)
+
+export default app;
