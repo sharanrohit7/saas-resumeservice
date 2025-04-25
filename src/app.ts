@@ -1,6 +1,7 @@
 import express, { Request, Response } from "express";
 import resumeRouter from "./routes/analyzeresume"
 import uploadRouter from "./routes/fileUpload"
+import authRouter from "./routes/auth.route"
 import helmet from "helmet";
 import cors from 'cors'
 const app = express();
@@ -10,5 +11,6 @@ app.use(cors())
 
 app.use("/resume",resumeRouter)
 app.use("/file",uploadRouter)
+app.use("/auth",authRouter)
 
 export default app;

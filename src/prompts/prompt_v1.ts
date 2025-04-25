@@ -62,89 +62,135 @@ export function generateATSAnalysisPrompt(params: Messages): string {
   3. Mark unverifiable data as 'unconfirmed'
   4. Include exact text matches from both documents
   
-  Output: Pure JSON following this structure exactly.`;
+  **Output Requirement**: Strict JSON following above schema. No markdown. Ensure valid JSON syntax.`;
   }
   
   export function generateDeepResumeAnalysisPrompt(params: Messages): string {
+    const jdWordsArray = params.job_desc
+      .replace(/[\n\r]/g, ' ')
+      .replace(/["]/g, "'")
+      .split(/\s+/)
+      .slice(0, 10);
+  
+    const jdWords = jdWordsArray.map(word => `"${word}"`).join(',');
+  
     return `
-  You are a master resume analyst. Conduct deep-dive analysis of:
+  You are a master resume analyst and ATS expert.
   
-  Job Description: """
-  ${params.job_desc}
-  """
+  Compare this resume and job description in detail. Your output must follow this **strict JSON** structure with valid syntax, no markdown, no explanation.
   
-  Resume Content: """
-  ${params.resumeInfo}
-  """
+  Job Title: "${params.job_title}"
+  Company: "${params.company_name}"
+  Resume Content: """${params.resumeInfo}"""
   
-  Produce JSON with base structure from standard analysis plus these deep sections:
+  Return JSON in this format:
   
   {
-    ... (include all base structure fields),
+    "metadata": {
+      "job_title_analysis": {
+        "resume_titles": ["Software Engineer", "Backend Developer"], 
+        "target_title": "${params.job_title}",
+        "similarity_score": 78
+      },
+      "source_validation": {
+        "resume_sections_used": ["Experience", "Skills"],
+        "external_sources": ["LinkedIn", "Company Website"]
+      }
+    },
+    "score_breakdown": {
+      "ats_score": 82,
+      "components": {
+        "keywords": 85,
+        "experience": 78,
+        "education": 80,
+        "culture_fit": 65
+      }
+    },
+    "gap_analysis": {
+      "skills": {
+        "missing_hard": ["Kubernetes", "AWS"],
+        "missing_soft": ["problem-solving", "cross-functional collaboration"],
+        "partial_matches": ["REST API vs RESTful services"]
+      },
+      "experience": {
+        "years_diff": 2,
+        "role_gaps": ["team leadership", "CI/CD setup"]
+      }
+    },
+    "recommendations": {
+      "priority_order": ["critical", "high", "medium"],
+      "action_items": {
+        "critical": ["Add 'Kubernetes' and 'AWS' in Skills and Projects"],
+        "high": ["Highlight team leadership experience"],
+        "medium": ["Align job title with JD"]
+      }
+    },
+    "verification_status": {
+      "needs_clarification": ["Managed large teams – no size specified"],
+      "sources_checked": ["resume", "external"]
+    },
     "deep_analysis": {
       "keyword_breakdown": {
-        "jd_keywords": ["${params.job_desc.split(' ').slice(0,10).join('","')}"],
+        "jd_keywords": [${jdWords}],
         "resume_matches": {
-          "exact": ["term", ...],
-          "partial": ["similar term", ...],
-          "missing": ["critical JD term", ...]
+          "exact": ["Java", "Springboot"],
+          "partial": ["REST APIs"],
+          "missing": ["AWS", "Kubernetes"]
         },
         "density_analysis": {
-          "ideal_range": "5-7% per key skill",
-          "current_distribution": {"skill": "%"}
+          "ideal_range": "5-7%",
+          "current_distribution": {
+            "Java": "6%",
+            "Springboot": "4%",
+            "Kubernetes": "0%"
+          }
         }
       },
       "achievement_analysis": {
         "quantified": {
-          "count": "number",
-          "examples": ["Increased X by Y%", ...]
+          "count": 3,
+          "examples": ["Increased API throughput by 40%", "Reduced downtime by 30%"]
         },
         "weak_statements": [
           {
-            "original": "exact resume text",
-            "improved": "stronger version",
-            "improvement_reason": "Added metric/action verb"
+            "original": "Handled deployment",
+            "improved": "Led deployment pipelines reducing manual steps by 50%",
+            "improvement_reason": "Added metric and leadership context"
           }
         ]
       },
       "competitive_positioning": {
-        "strengths": ["unique value props"],
-        "differentiators": ["rare skill combinations"],
-        "market_weaknesses": ["common gaps in industry"]
+        "strengths": ["Full-stack exposure", "Startup adaptability"],
+        "differentiators": ["Go + React stack", "Fast delivery track record"],
+        "market_weaknesses": ["No cloud certifications"]
       },
       "optimization_strategies": {
         "immediate": [
           {
-            "section": "Skills Summary",
-            "action": "Add '${params.job_desc.split(' ')[0]}'",
-            "example": "Before: 'Skills' | After: '${params.job_desc.split(' ')[0]} Skills'"
+            "section": "Skills",
+            "action": "Add missing JD term",
+            "example": "Before: 'Skills: Java, Spring' | After: 'Skills: Java, Spring, AWS'"
           }
         ],
         "long_term": [
           {
-            "skill": "Missing JD technology",
-            "resource": "Recommended certification/course"
+            "skill": "Kubernetes",
+            "resource": "Certified Kubernetes Administrator (CKA)"
           }
         ]
       }
     },
     "readability_analysis": {
-      "ats_friendly_score": "number/10",
+      "ats_friendly_score": 9,
       "human_readability": {
-        "grade_level": "number",
-        "passive_voice": "%"
+        "grade_level": 8,
+        "passive_voice": "10%"
       }
     }
   }
-  
-  Additional Rules:
-  1. Provide before/after examples for every recommendation
-  2. Include 3-5 specific wording improvements
-  3. Add market comparison data points
-  4. Maintain all verification rules from standard analysis
-  
-  Output: Pure JSON following combined structure.`;
+  `;
   }
+  
 // export function generateATSAnalysisPrompt(params: Messages): string {
 //     return `
 //     You are an expert Applicant Tracking System (ATS) and career analyst. Your job is to evaluate how well a candidate's resume matches a job description.

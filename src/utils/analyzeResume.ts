@@ -2,7 +2,7 @@ import { Messages } from "../../Interface/llm";
 import {BaseAnalysis, DeepAnalysis}from "../../Interface/analysis"
 import { generateATSAnalysisPrompt, generateDeepResumeAnalysisPrompt } from "../prompts/prompt_v1";
 import { callGPTLLM } from "../LLMs/gpt.llm";
-export type QueryType = "basic" | "advanced";
+export type QueryType = "BASIC" | "PRO";
 
 export interface ResumeAnalysisQuery {
   model: string;
@@ -14,9 +14,9 @@ export const analyzeResume = async (
   ): Promise<BaseAnalysis | DeepAnalysis | {}> => {
     let prompt = "";
   
-    if (query.queryType === "advanced") {
+    if (query.queryType === "PRO") {
       prompt = generateDeepResumeAnalysisPrompt(data);
-    } else if (query.queryType === "basic") {
+    } else if (query.queryType === "BASIC") {
       prompt = generateATSAnalysisPrompt(data);
     } else {
       return {};

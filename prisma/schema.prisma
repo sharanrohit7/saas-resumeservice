@@ -1,0 +1,118 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model SubscriptionPlan {
+  id            String         @id @default(uuid())
+  name          String         @unique
+  description   String
+  features      Json
+  countryCode   String
+  amount        Int
+  currency      String         @default("INR")
+  createdAt     DateTime       @default(now())
+  billingcycle  String?
+  subscriptions Subscription[]
+}
+
+model Subscription {
+  id             String             @id @default(uuid())
+  userId         String
+  planId         String
+  status         SubscriptionStatus @default(ACTIVE)
+  startDate      DateTime           @default(now())
+  endDate        DateTime?
+  renewalAttempt Int                @default(0)
+  stripeId       String?            @unique
+  countryCode    String
+  createdAt      DateTime           @default(now())
+  updatedAt      DateTime           @updatedAt
+  plan           SubscriptionPlan   @relation(fields: [planId], references: [id])
+  user           Users              @relation(fields: [userId], references: [id])
+
+  @@index([userId, status])
+  @@index([stripeId])
+}
+
+model Resume {
+  id        String   @id @default(uuid())
+  userId    String
+  title     String
+  content   Json
+  isDefault Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      Users    @relation(fields: [userId], references: [id])
+
+  @@index([userId])
+}
+
+model UserAnalysisHistory {
+  id           String       @id @default(uuid())
+  userId       String
+  analysisId   String
+  analysisType AnalysisType
+  snapshot     Json
+  viewedAt     DateTime     @default(now())
+  user         Users        @relation(fields: [userId], references: [id])
+
+  @@index([userId])
+}
+
+model Users {
+  id              String                @id(map: "User_pkey")
+  email           String                @unique(map: "User_email_key")
+  authProvider    AuthProvider          @default(EMAIL)
+  firebaseUID     String?               @unique(map: "User_firebaseUID_key")
+  googleID        String?               @unique(map: "User_googleID_key")
+  country         String                @default("IN")
+  createdAt       DateTime              @default(now())
+  updatedAt       DateTime
+  photourl        String?
+  resumes         Resume[]
+  subscriptions   Subscription[]
+  analysisHistory UserAnalysisHistory[]
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model resume_analysis {
+  id                   String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  resume_id            String   @db.Uuid
+  user_id              String   @db.Uuid
+  plan_type            String
+  job_title            String?
+  company_name         String?
+  job_description      String?
+  metadata             Json
+  score_breakdown      Json
+  gap_analysis         Json
+  recommendations      Json
+  verification         Json?
+  deep_analysis        Json?
+  readability_analysis Json?
+  created_at           DateTime @default(now()) @db.Timestamptz(6)
+  updated_at           DateTime @default(now()) @db.Timestamptz(6)
+}
+
+enum AnalysisType {
+  BASIC
+  PRO
+}
+
+enum AuthProvider {
+  GOOGLE
+  EMAIL
+}
+
+enum SubscriptionStatus {
+  ACTIVE
+  CANCELLED
+  EXPIRED
+  PAUSED
+}
