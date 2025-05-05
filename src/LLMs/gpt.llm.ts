@@ -21,7 +21,9 @@ export async function callGPTLLM(prompt: any,model: string): Promise<any> {
         model:model,
       });
       // console.log(chatCompletion.choices[0].message.content);
-      
+      console.dir(chatCompletion.usage?.completion_tokens_details)
+      console.log(chatCompletion.usage?.prompt_tokens);
+      console.log("Total tokens",chatCompletion.usage?.total_tokens)
       return chatCompletion.choices[0].message;
     } catch (error: any) {
       if (error instanceof OpenAI.APIError) {

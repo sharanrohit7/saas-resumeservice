@@ -171,7 +171,10 @@ exports.Prisma.UsersScalarFieldEnum = {
   country: 'country',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
-  photourl: 'photourl'
+  photourl: 'photourl',
+  creditsBalance: 'creditsBalance',
+  userType: 'userType',
+  lastCreditActivity: 'lastCreditActivity'
 };
 
 exports.Prisma.Resume_analysisScalarFieldEnum = {
@@ -191,6 +194,18 @@ exports.Prisma.Resume_analysisScalarFieldEnum = {
   readability_analysis: 'readability_analysis',
   created_at: 'created_at',
   updated_at: 'updated_at'
+};
+
+exports.Prisma.Credit_transactionsScalarFieldEnum = {
+  transaction_id: 'transaction_id',
+  user_id: 'user_id',
+  amount: 'amount',
+  description: 'description',
+  reference_id: 'reference_id',
+  txn_type: 'txn_type',
+  created_at: 'created_at',
+  updated_at: 'updated_at',
+  expiry_date: 'expiry_date'
 };
 
 exports.Prisma.SortOrder = {
@@ -245,7 +260,8 @@ exports.Prisma.ModelName = {
   Resume: 'Resume',
   UserAnalysisHistory: 'UserAnalysisHistory',
   Users: 'Users',
-  resume_analysis: 'resume_analysis'
+  resume_analysis: 'resume_analysis',
+  credit_transactions: 'credit_transactions'
 };
 
 /**

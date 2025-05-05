@@ -31,13 +31,11 @@ export const SaveAnalysisData = async (
         created_at: new Date(),
         updated_at: new Date()
       };
-
       // PRO-specific data
       if (refData.queryType === 'PRO' && 'deep_analysis' in data && 'readability_analysis' in data) {
         analysisData.deep_analysis = data.deep_analysis;
         analysisData.readability_analysis = data.readability_analysis;
       }
-
       // Save analysis data
       const newAnalysis = await tx.resume_analysis.create({
         data: analysisData

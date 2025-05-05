@@ -66,18 +66,22 @@ model UserAnalysisHistory {
 }
 
 model Users {
-  id              String                @id(map: "User_pkey")
-  email           String                @unique(map: "User_email_key")
-  authProvider    AuthProvider          @default(EMAIL)
-  firebaseUID     String?               @unique(map: "User_firebaseUID_key")
-  googleID        String?               @unique(map: "User_googleID_key")
-  country         String                @default("IN")
-  createdAt       DateTime              @default(now())
-  updatedAt       DateTime
-  photourl        String?
-  resumes         Resume[]
-  subscriptions   Subscription[]
-  analysisHistory UserAnalysisHistory[]
+  id                  String                @id(map: "User_pkey")
+  email               String                @unique(map: "User_email_key")
+  authProvider        AuthProvider          @default(EMAIL)
+  firebaseUID         String?               @unique(map: "User_firebaseUID_key")
+  googleID            String?               @unique(map: "User_googleID_key")
+  country             String                @default("IN")
+  createdAt           DateTime              @default(now())
+  updatedAt           DateTime
+  photourl            String?
+  creditsBalance      Int                   @default(5)
+  userType            String                @default("free")
+  lastCreditActivity  DateTime?             @db.Timestamp(6)
+  resumes             Resume[]
+  subscriptions       Subscription[]
+  analysisHistory     UserAnalysisHistory[]
+  credit_transactions credit_transactions[]
 }
 
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
@@ -98,6 +102,23 @@ model resume_analysis {
   readability_analysis Json?
   created_at           DateTime @default(now()) @db.Timestamptz(6)
   updated_at           DateTime @default(now()) @db.Timestamptz(6)
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model credit_transactions {
+  transaction_id String    @id @db.VarChar(36)
+  user_id        String
+  amount         Int
+  description    String    @db.VarChar(100)
+  reference_id   String?   @db.VarChar(36)
+  txn_type       String
+  created_at     DateTime  @default(now()) @db.Timestamp(6)
+  updated_at     DateTime  @default(now()) @db.Timestamp(6)
+  expiry_date    DateTime? @db.Timestamp(6)
+  Users          Users     @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([created_at], map: "idx_credit_transactions_created")
+  @@index([user_id], map: "idx_credit_transactions_user")
 }
 
 enum AnalysisType {

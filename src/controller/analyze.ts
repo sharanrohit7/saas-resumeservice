@@ -5,8 +5,13 @@ import { fetchAndExtractPdfText } from "../utils/fileReader";
 import { AnalysisReferenceData } from "../../Interface/dbServiceInterface";
 import { SaveAnalysisData } from "../services/subscriptionService";
 import { BaseAnalysis, DeepAnalysis } from "../../Interface/analysis";
+import { CreditService } from "../utils/creditManager";
 
 export const analyzeResumeController = async (req: Request, res: Response) => {
+  const userId = req.user?.id;
+  if (!userId) {
+    return res.status(401).json({ error: "Unauthorized" });
+  }
     try {
       const {resume_url, job_desc, company_name, job_title, model, queryType } = req.body;
   
@@ -33,12 +38,13 @@ export const analyzeResumeController = async (req: Request, res: Response) => {
         job_title: job_title,
         company_name: company_name
       }
-     
-      const result = await analyzeResume({ model, queryType }, input);
+   
+      const result = await analyzeResume({ model, queryType }, input,userId );
 
       
      
-      await SaveAnalysisData(result as unknown as BaseAnalysis | DeepAnalysis, data);
+      const analysisdata =await SaveAnalysisData(result as unknown as BaseAnalysis | DeepAnalysis, data);
+      await CreditService.deductCredits(userId, queryType, analysisdata.id);
       return res.status(200).json({ success: true, plan : queryType,data: result });
     } catch (error) {
       console.error("Error analyzing resume:", error);
