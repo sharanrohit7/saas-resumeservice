@@ -33,7 +33,8 @@ export async function upsertUserController(req: Request, res: Response) {
         authProvider,
         country,
       });
-  
+     console.log("sigin");
+     
       return res.status(200).json({ success: true, user });
     } catch (error: any) {
       console.error('upsertUserController error:', error);

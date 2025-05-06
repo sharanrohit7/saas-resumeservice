@@ -12,65 +12,85 @@ export interface ResumeAnalysisQuery {
   queryType: QueryType;
 }
 
+type AnalysisResult = {
+  data?: BaseAnalysis | DeepAnalysis;
+  requiredTokens?: number;
+  error?: string;
+  details?: string;
+};
+
 export const analyzeResume = async (
   query: ResumeAnalysisQuery,
   data: Messages,
-  userId: string,
-): Promise<BaseAnalysis | DeepAnalysis | {}> => {
+  userId: string
+): Promise<AnalysisResult> => {
+  // Validate query
   if (!query.queryType || !query.model) {
-    console.error("Invalid query parameters");
     return { error: "Invalid query parameters" };
   }
 
-  let prompt = "";
+  let prompt: string;
+
   try {
-    prompt = query.queryType === "PRO" 
-      ? generateDeepResumeAnalysisPrompt(data) 
+    prompt = query.queryType === "PRO"
+      ? generateDeepResumeAnalysisPrompt(data)
       : generateATSAnalysisPrompt(data);
   } catch (error) {
-    console.error("Failed to generate prompt:", error);
+    console.error("Prompt generation failed:", error);
     return { error: "Prompt generation failed" };
   }
- const promptLength = prompt.length;
-  if (promptLength > 4000) {
-    console.error("Prompt length exceeds limit:", promptLength);
+
+  const promptLength = prompt.length;
+
+  if (query.queryType === "BASIC" && promptLength > 4000) {
     return { error: "Prompt length exceeds limit" };
   }
+
   console.log("Prompt length:", promptLength);
-  const estimation = await CreditEstimation.estimate(
-    userId,
-    query.queryType,
-    promptLength
-  );
+
+  // Estimate cost
+  const estimation = await CreditEstimation.estimate(userId, query.queryType, promptLength);
 
   if (!estimation.canProceed) {
-    throw new Error(estimation.message);
+    return { error: estimation.message };
   }
+
+  const requiredTokens = estimation.required;
+
   try {
     const llmResponse = await callLLM(query.model, prompt);
-    
+
     if (!llmResponse?.content) {
-      console.error("Empty LLM response received");
       return { error: "Empty response from LLM" };
     }
 
-    // console.log("Raw LLM response:", llmResponse.content); // Debug logging
+    const parsed = safelyParseLLMResponse(llmResponse.content);
 
-    const parsedResponse = safelyParseLLMResponse(llmResponse.content);
-    if (!parsedResponse) {
+    if (!parsed) {
       return { error: "Could not parse valid JSON from LLM response" };
     }
 
-    const validated = validateAnalysisStructure(parsedResponse, query.queryType);
-    
+    const validated = validateAnalysisStructure(parsed, query.queryType);
 
-    return validated || { error: "Response validation failed" };
-   
+    if (!validated) {
+      return { error: "Response validation failed" };
+    }
+
+    return {
+      data: validated,
+      requiredTokens
+    };
+
   } catch (error: any) {
     console.error("Analysis failed:", error);
-    return { error: "Analysis process failed", details: error.message };
+    return {
+      error: "Analysis process failed",
+      details: error.message,
+      requiredTokens
+    };
   }
 };
+
 
 // Enhanced response parsing with multiple fallback strategies
 const safelyParseLLMResponse = (content: string): any | null => {

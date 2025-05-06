@@ -3893,6 +3893,7 @@ export namespace Prisma {
     isDefault: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
+    resume_url: string | null
   }
 
   export type ResumeMaxAggregateOutputType = {
@@ -3902,6 +3903,7 @@ export namespace Prisma {
     isDefault: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
+    resume_url: string | null
   }
 
   export type ResumeCountAggregateOutputType = {
@@ -3912,6 +3914,7 @@ export namespace Prisma {
     isDefault: number
     createdAt: number
     updatedAt: number
+    resume_url: number
     _all: number
   }
 
@@ -3923,6 +3926,7 @@ export namespace Prisma {
     isDefault?: true
     createdAt?: true
     updatedAt?: true
+    resume_url?: true
   }
 
   export type ResumeMaxAggregateInputType = {
@@ -3932,6 +3936,7 @@ export namespace Prisma {
     isDefault?: true
     createdAt?: true
     updatedAt?: true
+    resume_url?: true
   }
 
   export type ResumeCountAggregateInputType = {
@@ -3942,6 +3947,7 @@ export namespace Prisma {
     isDefault?: true
     createdAt?: true
     updatedAt?: true
+    resume_url?: true
     _all?: true
   }
 
@@ -4025,6 +4031,7 @@ export namespace Prisma {
     isDefault: boolean
     createdAt: Date
     updatedAt: Date
+    resume_url: string | null
     _count: ResumeCountAggregateOutputType | null
     _min: ResumeMinAggregateOutputType | null
     _max: ResumeMaxAggregateOutputType | null
@@ -4052,6 +4059,7 @@ export namespace Prisma {
     isDefault?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    resume_url?: boolean
     user?: boolean | UsersDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["resume"]>
 
@@ -4063,6 +4071,7 @@ export namespace Prisma {
     isDefault?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    resume_url?: boolean
     user?: boolean | UsersDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["resume"]>
 
@@ -4074,6 +4083,7 @@ export namespace Prisma {
     isDefault?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    resume_url?: boolean
     user?: boolean | UsersDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["resume"]>
 
@@ -4085,9 +4095,10 @@ export namespace Prisma {
     isDefault?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    resume_url?: boolean
   }
 
-  export type ResumeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "title" | "content" | "isDefault" | "createdAt" | "updatedAt", ExtArgs["result"]["resume"]>
+  export type ResumeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "title" | "content" | "isDefault" | "createdAt" | "updatedAt" | "resume_url", ExtArgs["result"]["resume"]>
   export type ResumeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UsersDefaultArgs<ExtArgs>
   }
@@ -4111,6 +4122,7 @@ export namespace Prisma {
       isDefault: boolean
       createdAt: Date
       updatedAt: Date
+      resume_url: string | null
     }, ExtArgs["result"]["resume"]>
     composites: {}
   }
@@ -4542,6 +4554,7 @@ export namespace Prisma {
     readonly isDefault: FieldRef<"Resume", 'Boolean'>
     readonly createdAt: FieldRef<"Resume", 'DateTime'>
     readonly updatedAt: FieldRef<"Resume", 'DateTime'>
+    readonly resume_url: FieldRef<"Resume", 'String'>
   }
     
 
@@ -9609,7 +9622,8 @@ export namespace Prisma {
     content: 'content',
     isDefault: 'isDefault',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    updatedAt: 'updatedAt',
+    resume_url: 'resume_url'
   };
 
   export type ResumeScalarFieldEnum = (typeof ResumeScalarFieldEnum)[keyof typeof ResumeScalarFieldEnum]
@@ -10035,6 +10049,7 @@ export namespace Prisma {
     isDefault?: BoolFilter<"Resume"> | boolean
     createdAt?: DateTimeFilter<"Resume"> | Date | string
     updatedAt?: DateTimeFilter<"Resume"> | Date | string
+    resume_url?: StringNullableFilter<"Resume"> | string | null
     user?: XOR<UsersScalarRelationFilter, UsersWhereInput>
   }
 
@@ -10046,6 +10061,7 @@ export namespace Prisma {
     isDefault?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    resume_url?: SortOrderInput | SortOrder
     user?: UsersOrderByWithRelationInput
   }
 
@@ -10060,6 +10076,7 @@ export namespace Prisma {
     isDefault?: BoolFilter<"Resume"> | boolean
     createdAt?: DateTimeFilter<"Resume"> | Date | string
     updatedAt?: DateTimeFilter<"Resume"> | Date | string
+    resume_url?: StringNullableFilter<"Resume"> | string | null
     user?: XOR<UsersScalarRelationFilter, UsersWhereInput>
   }, "id">
 
@@ -10071,6 +10088,7 @@ export namespace Prisma {
     isDefault?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    resume_url?: SortOrderInput | SortOrder
     _count?: ResumeCountOrderByAggregateInput
     _max?: ResumeMaxOrderByAggregateInput
     _min?: ResumeMinOrderByAggregateInput
@@ -10087,6 +10105,7 @@ export namespace Prisma {
     isDefault?: BoolWithAggregatesFilter<"Resume"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"Resume"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Resume"> | Date | string
+    resume_url?: StringNullableWithAggregatesFilter<"Resume"> | string | null
   }
 
   export type UserAnalysisHistoryWhereInput = {
@@ -10625,6 +10644,7 @@ export namespace Prisma {
     isDefault?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    resume_url?: string | null
     user: UsersCreateNestedOneWithoutResumesInput
   }
 
@@ -10636,6 +10656,7 @@ export namespace Prisma {
     isDefault?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    resume_url?: string | null
   }
 
   export type ResumeUpdateInput = {
@@ -10645,6 +10666,7 @@ export namespace Prisma {
     isDefault?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    resume_url?: NullableStringFieldUpdateOperationsInput | string | null
     user?: UsersUpdateOneRequiredWithoutResumesNestedInput
   }
 
@@ -10656,6 +10678,7 @@ export namespace Prisma {
     isDefault?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    resume_url?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ResumeCreateManyInput = {
@@ -10666,6 +10689,7 @@ export namespace Prisma {
     isDefault?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    resume_url?: string | null
   }
 
   export type ResumeUpdateManyMutationInput = {
@@ -10675,6 +10699,7 @@ export namespace Prisma {
     isDefault?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    resume_url?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ResumeUncheckedUpdateManyInput = {
@@ -10685,6 +10710,7 @@ export namespace Prisma {
     isDefault?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    resume_url?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type UserAnalysisHistoryCreateInput = {
@@ -11425,6 +11451,7 @@ export namespace Prisma {
     isDefault?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    resume_url?: SortOrder
   }
 
   export type ResumeMaxOrderByAggregateInput = {
@@ -11434,6 +11461,7 @@ export namespace Prisma {
     isDefault?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    resume_url?: SortOrder
   }
 
   export type ResumeMinOrderByAggregateInput = {
@@ -11443,6 +11471,7 @@ export namespace Prisma {
     isDefault?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    resume_url?: SortOrder
   }
 
   export type BoolWithAggregatesFilter<$PrismaModel = never> = {
@@ -12778,6 +12807,7 @@ export namespace Prisma {
     isDefault?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    resume_url?: string | null
   }
 
   export type ResumeUncheckedCreateWithoutUserInput = {
@@ -12787,6 +12817,7 @@ export namespace Prisma {
     isDefault?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    resume_url?: string | null
   }
 
   export type ResumeCreateOrConnectWithoutUserInput = {
@@ -12920,6 +12951,7 @@ export namespace Prisma {
     isDefault?: BoolFilter<"Resume"> | boolean
     createdAt?: DateTimeFilter<"Resume"> | Date | string
     updatedAt?: DateTimeFilter<"Resume"> | Date | string
+    resume_url?: StringNullableFilter<"Resume"> | string | null
   }
 
   export type SubscriptionUpsertWithWhereUniqueWithoutUserInput = {
@@ -13144,6 +13176,7 @@ export namespace Prisma {
     isDefault?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    resume_url?: string | null
   }
 
   export type SubscriptionCreateManyUserInput = {
@@ -13185,6 +13218,7 @@ export namespace Prisma {
     isDefault?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    resume_url?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ResumeUncheckedUpdateWithoutUserInput = {
@@ -13194,6 +13228,7 @@ export namespace Prisma {
     isDefault?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    resume_url?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ResumeUncheckedUpdateManyWithoutUserInput = {
@@ -13203,6 +13238,7 @@ export namespace Prisma {
     isDefault?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    resume_url?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type SubscriptionUpdateWithoutUserInput = {

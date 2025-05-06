@@ -33,7 +33,7 @@ export const firebaseAuth = async (
   try {
     const decodedToken = await auth.verifyIdToken(token);
     const firebaseUID = decodedToken.uid;
-    console.log("Decoded Token:", decodedToken);
+    // console.log("Decoded Token:", decodedToken);
     
     // Get your internal user ID from Firebase UID
     const user = await prisma.users.findUnique({

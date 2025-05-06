@@ -69,19 +69,21 @@ export class CreditService {
   static async deductCredits(
     userId: string,
     analysisType: AnalysisType,
-    referenceId: string
+    referenceId: string,
+    cost: number
   ): Promise<void> {
-    const cost = this.estimateCost(analysisType);
+    // const cost = this.estimateCost(analysisType);
+    console.log("cost to be decuted .........", cost);
     
     await prisma.$transaction([
       // Deduct from balance
-      prisma.users.update({
-        where: { id: userId },
-        data: { 
-          creditsBalance: { decrement: cost },
-          lastCreditActivity: new Date() 
-        }
-      }),
+      // prisma.users.update({
+      //   where: { id: userId },
+      //   data: { 
+      //     creditsBalance: { decrement: cost },
+      //     lastCreditActivity: new Date() 
+      //   }
+      // }),
       // Record transaction
       prisma.credit_transactions.create({
         data: {

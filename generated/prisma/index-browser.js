@@ -150,7 +150,8 @@ exports.Prisma.ResumeScalarFieldEnum = {
   content: 'content',
   isDefault: 'isDefault',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  resume_url: 'resume_url'
 };
 
 exports.Prisma.UserAnalysisHistoryScalarFieldEnum = {

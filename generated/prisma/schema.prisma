@@ -41,14 +41,15 @@ model Subscription {
 }
 
 model Resume {
-  id        String   @id @default(uuid())
-  userId    String
-  title     String
-  content   Json
-  isDefault Boolean  @default(false)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  user      Users    @relation(fields: [userId], references: [id])
+  id         String   @id @default(uuid())
+  userId     String
+  title      String
+  content    Json
+  isDefault  Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  resume_url String?
+  user       Users    @relation(fields: [userId], references: [id])
 
   @@index([userId])
 }
@@ -102,6 +103,8 @@ model resume_analysis {
   readability_analysis Json?
   created_at           DateTime @default(now()) @db.Timestamptz(6)
   updated_at           DateTime @default(now()) @db.Timestamptz(6)
+
+  @@index([user_id], map: "user_id_1746523347980_index")
 }
 
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
