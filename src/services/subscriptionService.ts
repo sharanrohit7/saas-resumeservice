@@ -4,7 +4,7 @@ import { BaseAnalysis, DeepAnalysis } from "../../Interface/analysis";
 
 
 import { AnalysisReferenceData } from "../../Interface/dbServiceInterface";
-import { PrismaClient } from '../../generated/prisma';
+import { PrismaClient } from '../../prisma/generated/prisma';
 
 const prisma = new PrismaClient();
 

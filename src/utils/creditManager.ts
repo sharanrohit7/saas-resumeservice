@@ -1,6 +1,6 @@
 // src/services/credit.service.ts
-import { Prisma } from '@prisma/client';
-import { AnalysisType, PrismaClient } from '../../generated/prisma';
+
+import { AnalysisType, Prisma, PrismaClient } from "../../prisma/generated/prisma";
 
 
 const prisma = new PrismaClient();

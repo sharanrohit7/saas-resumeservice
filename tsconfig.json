@@ -8,8 +8,12 @@
     "typeRoots": ["./node_modules/@types", "./types"],
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "types": ["node"]
+    "types": ["node"],
+    "baseUrl": ".",                           // Required for path mapping
+    "paths": {
+      "@prisma-client": ["prisma/generated/prisma"]
+    }
   },
-  "include": ["src/**/*.ts", "index.ts", "app.ts", "interfaces"],
-  "exclude": ["node_modules"]
+  "include": ["src/**/*.ts", "index.ts", "app.ts", "interfaces", "prisma/generated/prisma/**/*"],
+  "exclude": ["node_modules", "dist"]
 }

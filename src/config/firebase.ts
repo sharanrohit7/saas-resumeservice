@@ -1,6 +1,13 @@
 var admin = require("firebase-admin");
 
-var serviceAccount = require("../../saas-job-resume-firebase-adminsdk-fbsvc-56c40615c4.json");
+import path from 'path';
+const serviceAccountPath = process.env.FIREBASE_SERVICE_ACCOUNT_PATH;
+
+if (!serviceAccountPath) {
+  throw new Error('Missing FIREBASE_SERVICE_ACCOUNT_PATH environment variable');
+}
+
+const serviceAccount = require(path.resolve(serviceAccountPath));
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)

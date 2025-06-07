@@ -2,8 +2,9 @@
 import { Request, Response, NextFunction } from 'express';
 import {  FirebaseError } from 'firebase-admin';
 
-import { PrismaClient } from '../../generated/prisma';
+
 import { auth } from '../config/firebase';
+import { PrismaClient } from "../../prisma/generated/prisma";
 
 declare global {
   namespace Express {

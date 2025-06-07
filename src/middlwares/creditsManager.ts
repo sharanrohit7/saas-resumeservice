@@ -1,10 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
-import { AnalysisType } from '../../generated/prisma';
+
 import { CreditService } from '../utils/creditManager';
-;
-
-
-
+import { AnalysisType } from '../../prisma/generated/prisma';
 export class CreditEstimation {
   static async estimate(
     userId: string,
