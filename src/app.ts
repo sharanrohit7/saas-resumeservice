@@ -10,8 +10,21 @@ import { firebaseAuth } from "./middlwares/auth.middleware";
 const app = express();
 app.use(express.json());
 app.use(helmet())
-app.use(cors())
+const allowedOrigins = [
+  "http://localhost:3000",
+];
 
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true, // for cookies or sessions
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+}));
+app.use((req, res, next) => {
+  res.setHeader("Cross-Origin-Opener-Policy", "same-origin");
+  res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
+  next();
+});
 app.use("/resume",resumeRouter)
 app.use("/file",uploadRouter)
 app.use("/auth",authRouter)

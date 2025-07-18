@@ -126,7 +126,8 @@ exports.Prisma.SubscriptionPlanScalarFieldEnum = {
   amount: 'amount',
   currency: 'currency',
   createdAt: 'createdAt',
-  billingcycle: 'billingcycle'
+  billingcycle: 'billingcycle',
+  offer_price: 'offer_price'
 };
 
 exports.Prisma.SubscriptionScalarFieldEnum = {
@@ -209,17 +210,31 @@ exports.Prisma.Credit_transactionsScalarFieldEnum = {
   expiry_date: 'expiry_date'
 };
 
+exports.Prisma.App_featuresScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  limit: 'limit',
+  description: 'description'
+};
+
+exports.Prisma.Plan_feature_mapperScalarFieldEnum = {
+  id: 'id',
+  plan_id: 'plan_id',
+  feature_id: 'feature_id',
+  custom_limit: 'custom_limit'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
 };
 
-exports.Prisma.JsonNullValueInput = {
+exports.Prisma.NullableJsonNullValueInput = {
+  DbNull: Prisma.DbNull,
   JsonNull: Prisma.JsonNull
 };
 
-exports.Prisma.NullableJsonNullValueInput = {
-  DbNull: Prisma.DbNull,
+exports.Prisma.JsonNullValueInput = {
   JsonNull: Prisma.JsonNull
 };
 
@@ -262,7 +277,9 @@ exports.Prisma.ModelName = {
   UserAnalysisHistory: 'UserAnalysisHistory',
   Users: 'Users',
   resume_analysis: 'resume_analysis',
-  credit_transactions: 'credit_transactions'
+  credit_transactions: 'credit_transactions',
+  app_features: 'app_features',
+  plan_feature_mapper: 'plan_feature_mapper'
 };
 
 /**

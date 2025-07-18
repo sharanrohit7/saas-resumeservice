@@ -48,6 +48,16 @@ export type resume_analysis = $Result.DefaultSelection<Prisma.$resume_analysisPa
  * This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
  */
 export type credit_transactions = $Result.DefaultSelection<Prisma.$credit_transactionsPayload>
+/**
+ * Model app_features
+ * 
+ */
+export type app_features = $Result.DefaultSelection<Prisma.$app_featuresPayload>
+/**
+ * Model plan_feature_mapper
+ * 
+ */
+export type plan_feature_mapper = $Result.DefaultSelection<Prisma.$plan_feature_mapperPayload>
 
 /**
  * Enums
@@ -286,6 +296,26 @@ export class PrismaClient<
     * ```
     */
   get credit_transactions(): Prisma.credit_transactionsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.app_features`: Exposes CRUD operations for the **app_features** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more App_features
+    * const app_features = await prisma.app_features.findMany()
+    * ```
+    */
+  get app_features(): Prisma.app_featuresDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.plan_feature_mapper`: Exposes CRUD operations for the **plan_feature_mapper** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Plan_feature_mappers
+    * const plan_feature_mappers = await prisma.plan_feature_mapper.findMany()
+    * ```
+    */
+  get plan_feature_mapper(): Prisma.plan_feature_mapperDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -732,7 +762,9 @@ export namespace Prisma {
     UserAnalysisHistory: 'UserAnalysisHistory',
     Users: 'Users',
     resume_analysis: 'resume_analysis',
-    credit_transactions: 'credit_transactions'
+    credit_transactions: 'credit_transactions',
+    app_features: 'app_features',
+    plan_feature_mapper: 'plan_feature_mapper'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -751,7 +783,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "subscriptionPlan" | "subscription" | "resume" | "userAnalysisHistory" | "users" | "resume_analysis" | "credit_transactions"
+      modelProps: "subscriptionPlan" | "subscription" | "resume" | "userAnalysisHistory" | "users" | "resume_analysis" | "credit_transactions" | "app_features" | "plan_feature_mapper"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1273,6 +1305,154 @@ export namespace Prisma {
           }
         }
       }
+      app_features: {
+        payload: Prisma.$app_featuresPayload<ExtArgs>
+        fields: Prisma.app_featuresFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.app_featuresFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$app_featuresPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.app_featuresFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$app_featuresPayload>
+          }
+          findFirst: {
+            args: Prisma.app_featuresFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$app_featuresPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.app_featuresFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$app_featuresPayload>
+          }
+          findMany: {
+            args: Prisma.app_featuresFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$app_featuresPayload>[]
+          }
+          create: {
+            args: Prisma.app_featuresCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$app_featuresPayload>
+          }
+          createMany: {
+            args: Prisma.app_featuresCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.app_featuresCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$app_featuresPayload>[]
+          }
+          delete: {
+            args: Prisma.app_featuresDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$app_featuresPayload>
+          }
+          update: {
+            args: Prisma.app_featuresUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$app_featuresPayload>
+          }
+          deleteMany: {
+            args: Prisma.app_featuresDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.app_featuresUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.app_featuresUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$app_featuresPayload>[]
+          }
+          upsert: {
+            args: Prisma.app_featuresUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$app_featuresPayload>
+          }
+          aggregate: {
+            args: Prisma.App_featuresAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateApp_features>
+          }
+          groupBy: {
+            args: Prisma.app_featuresGroupByArgs<ExtArgs>
+            result: $Utils.Optional<App_featuresGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.app_featuresCountArgs<ExtArgs>
+            result: $Utils.Optional<App_featuresCountAggregateOutputType> | number
+          }
+        }
+      }
+      plan_feature_mapper: {
+        payload: Prisma.$plan_feature_mapperPayload<ExtArgs>
+        fields: Prisma.plan_feature_mapperFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.plan_feature_mapperFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$plan_feature_mapperPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.plan_feature_mapperFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$plan_feature_mapperPayload>
+          }
+          findFirst: {
+            args: Prisma.plan_feature_mapperFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$plan_feature_mapperPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.plan_feature_mapperFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$plan_feature_mapperPayload>
+          }
+          findMany: {
+            args: Prisma.plan_feature_mapperFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$plan_feature_mapperPayload>[]
+          }
+          create: {
+            args: Prisma.plan_feature_mapperCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$plan_feature_mapperPayload>
+          }
+          createMany: {
+            args: Prisma.plan_feature_mapperCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.plan_feature_mapperCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$plan_feature_mapperPayload>[]
+          }
+          delete: {
+            args: Prisma.plan_feature_mapperDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$plan_feature_mapperPayload>
+          }
+          update: {
+            args: Prisma.plan_feature_mapperUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$plan_feature_mapperPayload>
+          }
+          deleteMany: {
+            args: Prisma.plan_feature_mapperDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.plan_feature_mapperUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.plan_feature_mapperUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$plan_feature_mapperPayload>[]
+          }
+          upsert: {
+            args: Prisma.plan_feature_mapperUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$plan_feature_mapperPayload>
+          }
+          aggregate: {
+            args: Prisma.Plan_feature_mapperAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePlan_feature_mapper>
+          }
+          groupBy: {
+            args: Prisma.plan_feature_mapperGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Plan_feature_mapperGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.plan_feature_mapperCountArgs<ExtArgs>
+            result: $Utils.Optional<Plan_feature_mapperCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1364,6 +1544,8 @@ export namespace Prisma {
     users?: UsersOmit
     resume_analysis?: resume_analysisOmit
     credit_transactions?: credit_transactionsOmit
+    app_features?: app_featuresOmit
+    plan_feature_mapper?: plan_feature_mapperOmit
   }
 
   /* Types for Logging */
@@ -1459,10 +1641,12 @@ export namespace Prisma {
 
   export type SubscriptionPlanCountOutputType = {
     subscriptions: number
+    plan_feature_mapper: number
   }
 
   export type SubscriptionPlanCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     subscriptions?: boolean | SubscriptionPlanCountOutputTypeCountSubscriptionsArgs
+    plan_feature_mapper?: boolean | SubscriptionPlanCountOutputTypeCountPlan_feature_mapperArgs
   }
 
   // Custom InputTypes
@@ -1481,6 +1665,13 @@ export namespace Prisma {
    */
   export type SubscriptionPlanCountOutputTypeCountSubscriptionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: SubscriptionWhereInput
+  }
+
+  /**
+   * SubscriptionPlanCountOutputType without action
+   */
+  export type SubscriptionPlanCountOutputTypeCountPlan_feature_mapperArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: plan_feature_mapperWhereInput
   }
 
 
@@ -1543,6 +1734,37 @@ export namespace Prisma {
 
 
   /**
+   * Count Type App_featuresCountOutputType
+   */
+
+  export type App_featuresCountOutputType = {
+    plan_feature_mapper: number
+  }
+
+  export type App_featuresCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    plan_feature_mapper?: boolean | App_featuresCountOutputTypeCountPlan_feature_mapperArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * App_featuresCountOutputType without action
+   */
+  export type App_featuresCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the App_featuresCountOutputType
+     */
+    select?: App_featuresCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * App_featuresCountOutputType without action
+   */
+  export type App_featuresCountOutputTypeCountPlan_feature_mapperArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: plan_feature_mapperWhereInput
+  }
+
+
+  /**
    * Models
    */
 
@@ -1560,10 +1782,12 @@ export namespace Prisma {
 
   export type SubscriptionPlanAvgAggregateOutputType = {
     amount: number | null
+    offer_price: Decimal | null
   }
 
   export type SubscriptionPlanSumAggregateOutputType = {
     amount: number | null
+    offer_price: Decimal | null
   }
 
   export type SubscriptionPlanMinAggregateOutputType = {
@@ -1575,6 +1799,7 @@ export namespace Prisma {
     currency: string | null
     createdAt: Date | null
     billingcycle: string | null
+    offer_price: Decimal | null
   }
 
   export type SubscriptionPlanMaxAggregateOutputType = {
@@ -1586,6 +1811,7 @@ export namespace Prisma {
     currency: string | null
     createdAt: Date | null
     billingcycle: string | null
+    offer_price: Decimal | null
   }
 
   export type SubscriptionPlanCountAggregateOutputType = {
@@ -1598,16 +1824,19 @@ export namespace Prisma {
     currency: number
     createdAt: number
     billingcycle: number
+    offer_price: number
     _all: number
   }
 
 
   export type SubscriptionPlanAvgAggregateInputType = {
     amount?: true
+    offer_price?: true
   }
 
   export type SubscriptionPlanSumAggregateInputType = {
     amount?: true
+    offer_price?: true
   }
 
   export type SubscriptionPlanMinAggregateInputType = {
@@ -1619,6 +1848,7 @@ export namespace Prisma {
     currency?: true
     createdAt?: true
     billingcycle?: true
+    offer_price?: true
   }
 
   export type SubscriptionPlanMaxAggregateInputType = {
@@ -1630,6 +1860,7 @@ export namespace Prisma {
     currency?: true
     createdAt?: true
     billingcycle?: true
+    offer_price?: true
   }
 
   export type SubscriptionPlanCountAggregateInputType = {
@@ -1642,6 +1873,7 @@ export namespace Prisma {
     currency?: true
     createdAt?: true
     billingcycle?: true
+    offer_price?: true
     _all?: true
   }
 
@@ -1734,13 +1966,14 @@ export namespace Prisma {
   export type SubscriptionPlanGroupByOutputType = {
     id: string
     name: string
-    description: string
-    features: JsonValue
+    description: string | null
+    features: JsonValue | null
     countryCode: string
     amount: number
     currency: string
     createdAt: Date
     billingcycle: string | null
+    offer_price: Decimal | null
     _count: SubscriptionPlanCountAggregateOutputType | null
     _avg: SubscriptionPlanAvgAggregateOutputType | null
     _sum: SubscriptionPlanSumAggregateOutputType | null
@@ -1772,7 +2005,9 @@ export namespace Prisma {
     currency?: boolean
     createdAt?: boolean
     billingcycle?: boolean
+    offer_price?: boolean
     subscriptions?: boolean | SubscriptionPlan$subscriptionsArgs<ExtArgs>
+    plan_feature_mapper?: boolean | SubscriptionPlan$plan_feature_mapperArgs<ExtArgs>
     _count?: boolean | SubscriptionPlanCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["subscriptionPlan"]>
 
@@ -1786,6 +2021,7 @@ export namespace Prisma {
     currency?: boolean
     createdAt?: boolean
     billingcycle?: boolean
+    offer_price?: boolean
   }, ExtArgs["result"]["subscriptionPlan"]>
 
   export type SubscriptionPlanSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1798,6 +2034,7 @@ export namespace Prisma {
     currency?: boolean
     createdAt?: boolean
     billingcycle?: boolean
+    offer_price?: boolean
   }, ExtArgs["result"]["subscriptionPlan"]>
 
   export type SubscriptionPlanSelectScalar = {
@@ -1810,11 +2047,13 @@ export namespace Prisma {
     currency?: boolean
     createdAt?: boolean
     billingcycle?: boolean
+    offer_price?: boolean
   }
 
-  export type SubscriptionPlanOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "features" | "countryCode" | "amount" | "currency" | "createdAt" | "billingcycle", ExtArgs["result"]["subscriptionPlan"]>
+  export type SubscriptionPlanOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "features" | "countryCode" | "amount" | "currency" | "createdAt" | "billingcycle" | "offer_price", ExtArgs["result"]["subscriptionPlan"]>
   export type SubscriptionPlanInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     subscriptions?: boolean | SubscriptionPlan$subscriptionsArgs<ExtArgs>
+    plan_feature_mapper?: boolean | SubscriptionPlan$plan_feature_mapperArgs<ExtArgs>
     _count?: boolean | SubscriptionPlanCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type SubscriptionPlanIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -1824,17 +2063,19 @@ export namespace Prisma {
     name: "SubscriptionPlan"
     objects: {
       subscriptions: Prisma.$SubscriptionPayload<ExtArgs>[]
+      plan_feature_mapper: Prisma.$plan_feature_mapperPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       name: string
-      description: string
-      features: Prisma.JsonValue
+      description: string | null
+      features: Prisma.JsonValue | null
       countryCode: string
       amount: number
       currency: string
       createdAt: Date
       billingcycle: string | null
+      offer_price: Prisma.Decimal | null
     }, ExtArgs["result"]["subscriptionPlan"]>
     composites: {}
   }
@@ -2230,6 +2471,7 @@ export namespace Prisma {
   export interface Prisma__SubscriptionPlanClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     subscriptions<T extends SubscriptionPlan$subscriptionsArgs<ExtArgs> = {}>(args?: Subset<T, SubscriptionPlan$subscriptionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SubscriptionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    plan_feature_mapper<T extends SubscriptionPlan$plan_feature_mapperArgs<ExtArgs> = {}>(args?: Subset<T, SubscriptionPlan$plan_feature_mapperArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$plan_feature_mapperPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2268,6 +2510,7 @@ export namespace Prisma {
     readonly currency: FieldRef<"SubscriptionPlan", 'String'>
     readonly createdAt: FieldRef<"SubscriptionPlan", 'DateTime'>
     readonly billingcycle: FieldRef<"SubscriptionPlan", 'String'>
+    readonly offer_price: FieldRef<"SubscriptionPlan", 'Decimal'>
   }
     
 
@@ -2677,6 +2920,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: SubscriptionScalarFieldEnum | SubscriptionScalarFieldEnum[]
+  }
+
+  /**
+   * SubscriptionPlan.plan_feature_mapper
+   */
+  export type SubscriptionPlan$plan_feature_mapperArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the plan_feature_mapper
+     */
+    select?: plan_feature_mapperSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the plan_feature_mapper
+     */
+    omit?: plan_feature_mapperOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: plan_feature_mapperInclude<ExtArgs> | null
+    where?: plan_feature_mapperWhereInput
+    orderBy?: plan_feature_mapperOrderByWithRelationInput | plan_feature_mapperOrderByWithRelationInput[]
+    cursor?: plan_feature_mapperWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Plan_feature_mapperScalarFieldEnum | Plan_feature_mapperScalarFieldEnum[]
   }
 
   /**
@@ -9570,6 +9837,2203 @@ export namespace Prisma {
 
 
   /**
+   * Model app_features
+   */
+
+  export type AggregateApp_features = {
+    _count: App_featuresCountAggregateOutputType | null
+    _avg: App_featuresAvgAggregateOutputType | null
+    _sum: App_featuresSumAggregateOutputType | null
+    _min: App_featuresMinAggregateOutputType | null
+    _max: App_featuresMaxAggregateOutputType | null
+  }
+
+  export type App_featuresAvgAggregateOutputType = {
+    limit: number | null
+  }
+
+  export type App_featuresSumAggregateOutputType = {
+    limit: number | null
+  }
+
+  export type App_featuresMinAggregateOutputType = {
+    id: string | null
+    title: string | null
+    limit: number | null
+    description: string | null
+  }
+
+  export type App_featuresMaxAggregateOutputType = {
+    id: string | null
+    title: string | null
+    limit: number | null
+    description: string | null
+  }
+
+  export type App_featuresCountAggregateOutputType = {
+    id: number
+    title: number
+    limit: number
+    description: number
+    _all: number
+  }
+
+
+  export type App_featuresAvgAggregateInputType = {
+    limit?: true
+  }
+
+  export type App_featuresSumAggregateInputType = {
+    limit?: true
+  }
+
+  export type App_featuresMinAggregateInputType = {
+    id?: true
+    title?: true
+    limit?: true
+    description?: true
+  }
+
+  export type App_featuresMaxAggregateInputType = {
+    id?: true
+    title?: true
+    limit?: true
+    description?: true
+  }
+
+  export type App_featuresCountAggregateInputType = {
+    id?: true
+    title?: true
+    limit?: true
+    description?: true
+    _all?: true
+  }
+
+  export type App_featuresAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which app_features to aggregate.
+     */
+    where?: app_featuresWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of app_features to fetch.
+     */
+    orderBy?: app_featuresOrderByWithRelationInput | app_featuresOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: app_featuresWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` app_features from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` app_features.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned app_features
+    **/
+    _count?: true | App_featuresCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: App_featuresAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: App_featuresSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: App_featuresMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: App_featuresMaxAggregateInputType
+  }
+
+  export type GetApp_featuresAggregateType<T extends App_featuresAggregateArgs> = {
+        [P in keyof T & keyof AggregateApp_features]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateApp_features[P]>
+      : GetScalarType<T[P], AggregateApp_features[P]>
+  }
+
+
+
+
+  export type app_featuresGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: app_featuresWhereInput
+    orderBy?: app_featuresOrderByWithAggregationInput | app_featuresOrderByWithAggregationInput[]
+    by: App_featuresScalarFieldEnum[] | App_featuresScalarFieldEnum
+    having?: app_featuresScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: App_featuresCountAggregateInputType | true
+    _avg?: App_featuresAvgAggregateInputType
+    _sum?: App_featuresSumAggregateInputType
+    _min?: App_featuresMinAggregateInputType
+    _max?: App_featuresMaxAggregateInputType
+  }
+
+  export type App_featuresGroupByOutputType = {
+    id: string
+    title: string
+    limit: number | null
+    description: string | null
+    _count: App_featuresCountAggregateOutputType | null
+    _avg: App_featuresAvgAggregateOutputType | null
+    _sum: App_featuresSumAggregateOutputType | null
+    _min: App_featuresMinAggregateOutputType | null
+    _max: App_featuresMaxAggregateOutputType | null
+  }
+
+  type GetApp_featuresGroupByPayload<T extends app_featuresGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<App_featuresGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof App_featuresGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], App_featuresGroupByOutputType[P]>
+            : GetScalarType<T[P], App_featuresGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type app_featuresSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    limit?: boolean
+    description?: boolean
+    plan_feature_mapper?: boolean | app_features$plan_feature_mapperArgs<ExtArgs>
+    _count?: boolean | App_featuresCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["app_features"]>
+
+  export type app_featuresSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    limit?: boolean
+    description?: boolean
+  }, ExtArgs["result"]["app_features"]>
+
+  export type app_featuresSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    limit?: boolean
+    description?: boolean
+  }, ExtArgs["result"]["app_features"]>
+
+  export type app_featuresSelectScalar = {
+    id?: boolean
+    title?: boolean
+    limit?: boolean
+    description?: boolean
+  }
+
+  export type app_featuresOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "limit" | "description", ExtArgs["result"]["app_features"]>
+  export type app_featuresInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    plan_feature_mapper?: boolean | app_features$plan_feature_mapperArgs<ExtArgs>
+    _count?: boolean | App_featuresCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type app_featuresIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type app_featuresIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $app_featuresPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "app_features"
+    objects: {
+      plan_feature_mapper: Prisma.$plan_feature_mapperPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      title: string
+      limit: number | null
+      description: string | null
+    }, ExtArgs["result"]["app_features"]>
+    composites: {}
+  }
+
+  type app_featuresGetPayload<S extends boolean | null | undefined | app_featuresDefaultArgs> = $Result.GetResult<Prisma.$app_featuresPayload, S>
+
+  type app_featuresCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<app_featuresFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: App_featuresCountAggregateInputType | true
+    }
+
+  export interface app_featuresDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['app_features'], meta: { name: 'app_features' } }
+    /**
+     * Find zero or one App_features that matches the filter.
+     * @param {app_featuresFindUniqueArgs} args - Arguments to find a App_features
+     * @example
+     * // Get one App_features
+     * const app_features = await prisma.app_features.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends app_featuresFindUniqueArgs>(args: SelectSubset<T, app_featuresFindUniqueArgs<ExtArgs>>): Prisma__app_featuresClient<$Result.GetResult<Prisma.$app_featuresPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one App_features that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {app_featuresFindUniqueOrThrowArgs} args - Arguments to find a App_features
+     * @example
+     * // Get one App_features
+     * const app_features = await prisma.app_features.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends app_featuresFindUniqueOrThrowArgs>(args: SelectSubset<T, app_featuresFindUniqueOrThrowArgs<ExtArgs>>): Prisma__app_featuresClient<$Result.GetResult<Prisma.$app_featuresPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first App_features that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {app_featuresFindFirstArgs} args - Arguments to find a App_features
+     * @example
+     * // Get one App_features
+     * const app_features = await prisma.app_features.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends app_featuresFindFirstArgs>(args?: SelectSubset<T, app_featuresFindFirstArgs<ExtArgs>>): Prisma__app_featuresClient<$Result.GetResult<Prisma.$app_featuresPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first App_features that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {app_featuresFindFirstOrThrowArgs} args - Arguments to find a App_features
+     * @example
+     * // Get one App_features
+     * const app_features = await prisma.app_features.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends app_featuresFindFirstOrThrowArgs>(args?: SelectSubset<T, app_featuresFindFirstOrThrowArgs<ExtArgs>>): Prisma__app_featuresClient<$Result.GetResult<Prisma.$app_featuresPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more App_features that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {app_featuresFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all App_features
+     * const app_features = await prisma.app_features.findMany()
+     * 
+     * // Get first 10 App_features
+     * const app_features = await prisma.app_features.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const app_featuresWithIdOnly = await prisma.app_features.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends app_featuresFindManyArgs>(args?: SelectSubset<T, app_featuresFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$app_featuresPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a App_features.
+     * @param {app_featuresCreateArgs} args - Arguments to create a App_features.
+     * @example
+     * // Create one App_features
+     * const App_features = await prisma.app_features.create({
+     *   data: {
+     *     // ... data to create a App_features
+     *   }
+     * })
+     * 
+     */
+    create<T extends app_featuresCreateArgs>(args: SelectSubset<T, app_featuresCreateArgs<ExtArgs>>): Prisma__app_featuresClient<$Result.GetResult<Prisma.$app_featuresPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many App_features.
+     * @param {app_featuresCreateManyArgs} args - Arguments to create many App_features.
+     * @example
+     * // Create many App_features
+     * const app_features = await prisma.app_features.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends app_featuresCreateManyArgs>(args?: SelectSubset<T, app_featuresCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many App_features and returns the data saved in the database.
+     * @param {app_featuresCreateManyAndReturnArgs} args - Arguments to create many App_features.
+     * @example
+     * // Create many App_features
+     * const app_features = await prisma.app_features.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many App_features and only return the `id`
+     * const app_featuresWithIdOnly = await prisma.app_features.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends app_featuresCreateManyAndReturnArgs>(args?: SelectSubset<T, app_featuresCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$app_featuresPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a App_features.
+     * @param {app_featuresDeleteArgs} args - Arguments to delete one App_features.
+     * @example
+     * // Delete one App_features
+     * const App_features = await prisma.app_features.delete({
+     *   where: {
+     *     // ... filter to delete one App_features
+     *   }
+     * })
+     * 
+     */
+    delete<T extends app_featuresDeleteArgs>(args: SelectSubset<T, app_featuresDeleteArgs<ExtArgs>>): Prisma__app_featuresClient<$Result.GetResult<Prisma.$app_featuresPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one App_features.
+     * @param {app_featuresUpdateArgs} args - Arguments to update one App_features.
+     * @example
+     * // Update one App_features
+     * const app_features = await prisma.app_features.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends app_featuresUpdateArgs>(args: SelectSubset<T, app_featuresUpdateArgs<ExtArgs>>): Prisma__app_featuresClient<$Result.GetResult<Prisma.$app_featuresPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more App_features.
+     * @param {app_featuresDeleteManyArgs} args - Arguments to filter App_features to delete.
+     * @example
+     * // Delete a few App_features
+     * const { count } = await prisma.app_features.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends app_featuresDeleteManyArgs>(args?: SelectSubset<T, app_featuresDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more App_features.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {app_featuresUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many App_features
+     * const app_features = await prisma.app_features.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends app_featuresUpdateManyArgs>(args: SelectSubset<T, app_featuresUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more App_features and returns the data updated in the database.
+     * @param {app_featuresUpdateManyAndReturnArgs} args - Arguments to update many App_features.
+     * @example
+     * // Update many App_features
+     * const app_features = await prisma.app_features.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more App_features and only return the `id`
+     * const app_featuresWithIdOnly = await prisma.app_features.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends app_featuresUpdateManyAndReturnArgs>(args: SelectSubset<T, app_featuresUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$app_featuresPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one App_features.
+     * @param {app_featuresUpsertArgs} args - Arguments to update or create a App_features.
+     * @example
+     * // Update or create a App_features
+     * const app_features = await prisma.app_features.upsert({
+     *   create: {
+     *     // ... data to create a App_features
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the App_features we want to update
+     *   }
+     * })
+     */
+    upsert<T extends app_featuresUpsertArgs>(args: SelectSubset<T, app_featuresUpsertArgs<ExtArgs>>): Prisma__app_featuresClient<$Result.GetResult<Prisma.$app_featuresPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of App_features.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {app_featuresCountArgs} args - Arguments to filter App_features to count.
+     * @example
+     * // Count the number of App_features
+     * const count = await prisma.app_features.count({
+     *   where: {
+     *     // ... the filter for the App_features we want to count
+     *   }
+     * })
+    **/
+    count<T extends app_featuresCountArgs>(
+      args?: Subset<T, app_featuresCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], App_featuresCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a App_features.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {App_featuresAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends App_featuresAggregateArgs>(args: Subset<T, App_featuresAggregateArgs>): Prisma.PrismaPromise<GetApp_featuresAggregateType<T>>
+
+    /**
+     * Group by App_features.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {app_featuresGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends app_featuresGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: app_featuresGroupByArgs['orderBy'] }
+        : { orderBy?: app_featuresGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, app_featuresGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetApp_featuresGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the app_features model
+   */
+  readonly fields: app_featuresFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for app_features.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__app_featuresClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    plan_feature_mapper<T extends app_features$plan_feature_mapperArgs<ExtArgs> = {}>(args?: Subset<T, app_features$plan_feature_mapperArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$plan_feature_mapperPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the app_features model
+   */
+  interface app_featuresFieldRefs {
+    readonly id: FieldRef<"app_features", 'String'>
+    readonly title: FieldRef<"app_features", 'String'>
+    readonly limit: FieldRef<"app_features", 'Int'>
+    readonly description: FieldRef<"app_features", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * app_features findUnique
+   */
+  export type app_featuresFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the app_features
+     */
+    select?: app_featuresSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the app_features
+     */
+    omit?: app_featuresOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: app_featuresInclude<ExtArgs> | null
+    /**
+     * Filter, which app_features to fetch.
+     */
+    where: app_featuresWhereUniqueInput
+  }
+
+  /**
+   * app_features findUniqueOrThrow
+   */
+  export type app_featuresFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the app_features
+     */
+    select?: app_featuresSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the app_features
+     */
+    omit?: app_featuresOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: app_featuresInclude<ExtArgs> | null
+    /**
+     * Filter, which app_features to fetch.
+     */
+    where: app_featuresWhereUniqueInput
+  }
+
+  /**
+   * app_features findFirst
+   */
+  export type app_featuresFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the app_features
+     */
+    select?: app_featuresSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the app_features
+     */
+    omit?: app_featuresOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: app_featuresInclude<ExtArgs> | null
+    /**
+     * Filter, which app_features to fetch.
+     */
+    where?: app_featuresWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of app_features to fetch.
+     */
+    orderBy?: app_featuresOrderByWithRelationInput | app_featuresOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for app_features.
+     */
+    cursor?: app_featuresWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` app_features from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` app_features.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of app_features.
+     */
+    distinct?: App_featuresScalarFieldEnum | App_featuresScalarFieldEnum[]
+  }
+
+  /**
+   * app_features findFirstOrThrow
+   */
+  export type app_featuresFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the app_features
+     */
+    select?: app_featuresSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the app_features
+     */
+    omit?: app_featuresOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: app_featuresInclude<ExtArgs> | null
+    /**
+     * Filter, which app_features to fetch.
+     */
+    where?: app_featuresWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of app_features to fetch.
+     */
+    orderBy?: app_featuresOrderByWithRelationInput | app_featuresOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for app_features.
+     */
+    cursor?: app_featuresWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` app_features from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` app_features.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of app_features.
+     */
+    distinct?: App_featuresScalarFieldEnum | App_featuresScalarFieldEnum[]
+  }
+
+  /**
+   * app_features findMany
+   */
+  export type app_featuresFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the app_features
+     */
+    select?: app_featuresSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the app_features
+     */
+    omit?: app_featuresOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: app_featuresInclude<ExtArgs> | null
+    /**
+     * Filter, which app_features to fetch.
+     */
+    where?: app_featuresWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of app_features to fetch.
+     */
+    orderBy?: app_featuresOrderByWithRelationInput | app_featuresOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing app_features.
+     */
+    cursor?: app_featuresWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` app_features from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` app_features.
+     */
+    skip?: number
+    distinct?: App_featuresScalarFieldEnum | App_featuresScalarFieldEnum[]
+  }
+
+  /**
+   * app_features create
+   */
+  export type app_featuresCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the app_features
+     */
+    select?: app_featuresSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the app_features
+     */
+    omit?: app_featuresOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: app_featuresInclude<ExtArgs> | null
+    /**
+     * The data needed to create a app_features.
+     */
+    data: XOR<app_featuresCreateInput, app_featuresUncheckedCreateInput>
+  }
+
+  /**
+   * app_features createMany
+   */
+  export type app_featuresCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many app_features.
+     */
+    data: app_featuresCreateManyInput | app_featuresCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * app_features createManyAndReturn
+   */
+  export type app_featuresCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the app_features
+     */
+    select?: app_featuresSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the app_features
+     */
+    omit?: app_featuresOmit<ExtArgs> | null
+    /**
+     * The data used to create many app_features.
+     */
+    data: app_featuresCreateManyInput | app_featuresCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * app_features update
+   */
+  export type app_featuresUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the app_features
+     */
+    select?: app_featuresSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the app_features
+     */
+    omit?: app_featuresOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: app_featuresInclude<ExtArgs> | null
+    /**
+     * The data needed to update a app_features.
+     */
+    data: XOR<app_featuresUpdateInput, app_featuresUncheckedUpdateInput>
+    /**
+     * Choose, which app_features to update.
+     */
+    where: app_featuresWhereUniqueInput
+  }
+
+  /**
+   * app_features updateMany
+   */
+  export type app_featuresUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update app_features.
+     */
+    data: XOR<app_featuresUpdateManyMutationInput, app_featuresUncheckedUpdateManyInput>
+    /**
+     * Filter which app_features to update
+     */
+    where?: app_featuresWhereInput
+    /**
+     * Limit how many app_features to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * app_features updateManyAndReturn
+   */
+  export type app_featuresUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the app_features
+     */
+    select?: app_featuresSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the app_features
+     */
+    omit?: app_featuresOmit<ExtArgs> | null
+    /**
+     * The data used to update app_features.
+     */
+    data: XOR<app_featuresUpdateManyMutationInput, app_featuresUncheckedUpdateManyInput>
+    /**
+     * Filter which app_features to update
+     */
+    where?: app_featuresWhereInput
+    /**
+     * Limit how many app_features to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * app_features upsert
+   */
+  export type app_featuresUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the app_features
+     */
+    select?: app_featuresSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the app_features
+     */
+    omit?: app_featuresOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: app_featuresInclude<ExtArgs> | null
+    /**
+     * The filter to search for the app_features to update in case it exists.
+     */
+    where: app_featuresWhereUniqueInput
+    /**
+     * In case the app_features found by the `where` argument doesn't exist, create a new app_features with this data.
+     */
+    create: XOR<app_featuresCreateInput, app_featuresUncheckedCreateInput>
+    /**
+     * In case the app_features was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<app_featuresUpdateInput, app_featuresUncheckedUpdateInput>
+  }
+
+  /**
+   * app_features delete
+   */
+  export type app_featuresDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the app_features
+     */
+    select?: app_featuresSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the app_features
+     */
+    omit?: app_featuresOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: app_featuresInclude<ExtArgs> | null
+    /**
+     * Filter which app_features to delete.
+     */
+    where: app_featuresWhereUniqueInput
+  }
+
+  /**
+   * app_features deleteMany
+   */
+  export type app_featuresDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which app_features to delete
+     */
+    where?: app_featuresWhereInput
+    /**
+     * Limit how many app_features to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * app_features.plan_feature_mapper
+   */
+  export type app_features$plan_feature_mapperArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the plan_feature_mapper
+     */
+    select?: plan_feature_mapperSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the plan_feature_mapper
+     */
+    omit?: plan_feature_mapperOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: plan_feature_mapperInclude<ExtArgs> | null
+    where?: plan_feature_mapperWhereInput
+    orderBy?: plan_feature_mapperOrderByWithRelationInput | plan_feature_mapperOrderByWithRelationInput[]
+    cursor?: plan_feature_mapperWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Plan_feature_mapperScalarFieldEnum | Plan_feature_mapperScalarFieldEnum[]
+  }
+
+  /**
+   * app_features without action
+   */
+  export type app_featuresDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the app_features
+     */
+    select?: app_featuresSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the app_features
+     */
+    omit?: app_featuresOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: app_featuresInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model plan_feature_mapper
+   */
+
+  export type AggregatePlan_feature_mapper = {
+    _count: Plan_feature_mapperCountAggregateOutputType | null
+    _avg: Plan_feature_mapperAvgAggregateOutputType | null
+    _sum: Plan_feature_mapperSumAggregateOutputType | null
+    _min: Plan_feature_mapperMinAggregateOutputType | null
+    _max: Plan_feature_mapperMaxAggregateOutputType | null
+  }
+
+  export type Plan_feature_mapperAvgAggregateOutputType = {
+    custom_limit: number | null
+  }
+
+  export type Plan_feature_mapperSumAggregateOutputType = {
+    custom_limit: number | null
+  }
+
+  export type Plan_feature_mapperMinAggregateOutputType = {
+    id: string | null
+    plan_id: string | null
+    feature_id: string | null
+    custom_limit: number | null
+  }
+
+  export type Plan_feature_mapperMaxAggregateOutputType = {
+    id: string | null
+    plan_id: string | null
+    feature_id: string | null
+    custom_limit: number | null
+  }
+
+  export type Plan_feature_mapperCountAggregateOutputType = {
+    id: number
+    plan_id: number
+    feature_id: number
+    custom_limit: number
+    _all: number
+  }
+
+
+  export type Plan_feature_mapperAvgAggregateInputType = {
+    custom_limit?: true
+  }
+
+  export type Plan_feature_mapperSumAggregateInputType = {
+    custom_limit?: true
+  }
+
+  export type Plan_feature_mapperMinAggregateInputType = {
+    id?: true
+    plan_id?: true
+    feature_id?: true
+    custom_limit?: true
+  }
+
+  export type Plan_feature_mapperMaxAggregateInputType = {
+    id?: true
+    plan_id?: true
+    feature_id?: true
+    custom_limit?: true
+  }
+
+  export type Plan_feature_mapperCountAggregateInputType = {
+    id?: true
+    plan_id?: true
+    feature_id?: true
+    custom_limit?: true
+    _all?: true
+  }
+
+  export type Plan_feature_mapperAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which plan_feature_mapper to aggregate.
+     */
+    where?: plan_feature_mapperWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of plan_feature_mappers to fetch.
+     */
+    orderBy?: plan_feature_mapperOrderByWithRelationInput | plan_feature_mapperOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: plan_feature_mapperWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` plan_feature_mappers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` plan_feature_mappers.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned plan_feature_mappers
+    **/
+    _count?: true | Plan_feature_mapperCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Plan_feature_mapperAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Plan_feature_mapperSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Plan_feature_mapperMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Plan_feature_mapperMaxAggregateInputType
+  }
+
+  export type GetPlan_feature_mapperAggregateType<T extends Plan_feature_mapperAggregateArgs> = {
+        [P in keyof T & keyof AggregatePlan_feature_mapper]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePlan_feature_mapper[P]>
+      : GetScalarType<T[P], AggregatePlan_feature_mapper[P]>
+  }
+
+
+
+
+  export type plan_feature_mapperGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: plan_feature_mapperWhereInput
+    orderBy?: plan_feature_mapperOrderByWithAggregationInput | plan_feature_mapperOrderByWithAggregationInput[]
+    by: Plan_feature_mapperScalarFieldEnum[] | Plan_feature_mapperScalarFieldEnum
+    having?: plan_feature_mapperScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Plan_feature_mapperCountAggregateInputType | true
+    _avg?: Plan_feature_mapperAvgAggregateInputType
+    _sum?: Plan_feature_mapperSumAggregateInputType
+    _min?: Plan_feature_mapperMinAggregateInputType
+    _max?: Plan_feature_mapperMaxAggregateInputType
+  }
+
+  export type Plan_feature_mapperGroupByOutputType = {
+    id: string
+    plan_id: string | null
+    feature_id: string
+    custom_limit: number | null
+    _count: Plan_feature_mapperCountAggregateOutputType | null
+    _avg: Plan_feature_mapperAvgAggregateOutputType | null
+    _sum: Plan_feature_mapperSumAggregateOutputType | null
+    _min: Plan_feature_mapperMinAggregateOutputType | null
+    _max: Plan_feature_mapperMaxAggregateOutputType | null
+  }
+
+  type GetPlan_feature_mapperGroupByPayload<T extends plan_feature_mapperGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Plan_feature_mapperGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Plan_feature_mapperGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Plan_feature_mapperGroupByOutputType[P]>
+            : GetScalarType<T[P], Plan_feature_mapperGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type plan_feature_mapperSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    plan_id?: boolean
+    feature_id?: boolean
+    custom_limit?: boolean
+    app_features?: boolean | app_featuresDefaultArgs<ExtArgs>
+    SubscriptionPlan?: boolean | plan_feature_mapper$SubscriptionPlanArgs<ExtArgs>
+  }, ExtArgs["result"]["plan_feature_mapper"]>
+
+  export type plan_feature_mapperSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    plan_id?: boolean
+    feature_id?: boolean
+    custom_limit?: boolean
+    app_features?: boolean | app_featuresDefaultArgs<ExtArgs>
+    SubscriptionPlan?: boolean | plan_feature_mapper$SubscriptionPlanArgs<ExtArgs>
+  }, ExtArgs["result"]["plan_feature_mapper"]>
+
+  export type plan_feature_mapperSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    plan_id?: boolean
+    feature_id?: boolean
+    custom_limit?: boolean
+    app_features?: boolean | app_featuresDefaultArgs<ExtArgs>
+    SubscriptionPlan?: boolean | plan_feature_mapper$SubscriptionPlanArgs<ExtArgs>
+  }, ExtArgs["result"]["plan_feature_mapper"]>
+
+  export type plan_feature_mapperSelectScalar = {
+    id?: boolean
+    plan_id?: boolean
+    feature_id?: boolean
+    custom_limit?: boolean
+  }
+
+  export type plan_feature_mapperOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "plan_id" | "feature_id" | "custom_limit", ExtArgs["result"]["plan_feature_mapper"]>
+  export type plan_feature_mapperInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    app_features?: boolean | app_featuresDefaultArgs<ExtArgs>
+    SubscriptionPlan?: boolean | plan_feature_mapper$SubscriptionPlanArgs<ExtArgs>
+  }
+  export type plan_feature_mapperIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    app_features?: boolean | app_featuresDefaultArgs<ExtArgs>
+    SubscriptionPlan?: boolean | plan_feature_mapper$SubscriptionPlanArgs<ExtArgs>
+  }
+  export type plan_feature_mapperIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    app_features?: boolean | app_featuresDefaultArgs<ExtArgs>
+    SubscriptionPlan?: boolean | plan_feature_mapper$SubscriptionPlanArgs<ExtArgs>
+  }
+
+  export type $plan_feature_mapperPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "plan_feature_mapper"
+    objects: {
+      app_features: Prisma.$app_featuresPayload<ExtArgs>
+      SubscriptionPlan: Prisma.$SubscriptionPlanPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      plan_id: string | null
+      feature_id: string
+      custom_limit: number | null
+    }, ExtArgs["result"]["plan_feature_mapper"]>
+    composites: {}
+  }
+
+  type plan_feature_mapperGetPayload<S extends boolean | null | undefined | plan_feature_mapperDefaultArgs> = $Result.GetResult<Prisma.$plan_feature_mapperPayload, S>
+
+  type plan_feature_mapperCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<plan_feature_mapperFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Plan_feature_mapperCountAggregateInputType | true
+    }
+
+  export interface plan_feature_mapperDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['plan_feature_mapper'], meta: { name: 'plan_feature_mapper' } }
+    /**
+     * Find zero or one Plan_feature_mapper that matches the filter.
+     * @param {plan_feature_mapperFindUniqueArgs} args - Arguments to find a Plan_feature_mapper
+     * @example
+     * // Get one Plan_feature_mapper
+     * const plan_feature_mapper = await prisma.plan_feature_mapper.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends plan_feature_mapperFindUniqueArgs>(args: SelectSubset<T, plan_feature_mapperFindUniqueArgs<ExtArgs>>): Prisma__plan_feature_mapperClient<$Result.GetResult<Prisma.$plan_feature_mapperPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Plan_feature_mapper that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {plan_feature_mapperFindUniqueOrThrowArgs} args - Arguments to find a Plan_feature_mapper
+     * @example
+     * // Get one Plan_feature_mapper
+     * const plan_feature_mapper = await prisma.plan_feature_mapper.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends plan_feature_mapperFindUniqueOrThrowArgs>(args: SelectSubset<T, plan_feature_mapperFindUniqueOrThrowArgs<ExtArgs>>): Prisma__plan_feature_mapperClient<$Result.GetResult<Prisma.$plan_feature_mapperPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Plan_feature_mapper that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {plan_feature_mapperFindFirstArgs} args - Arguments to find a Plan_feature_mapper
+     * @example
+     * // Get one Plan_feature_mapper
+     * const plan_feature_mapper = await prisma.plan_feature_mapper.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends plan_feature_mapperFindFirstArgs>(args?: SelectSubset<T, plan_feature_mapperFindFirstArgs<ExtArgs>>): Prisma__plan_feature_mapperClient<$Result.GetResult<Prisma.$plan_feature_mapperPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Plan_feature_mapper that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {plan_feature_mapperFindFirstOrThrowArgs} args - Arguments to find a Plan_feature_mapper
+     * @example
+     * // Get one Plan_feature_mapper
+     * const plan_feature_mapper = await prisma.plan_feature_mapper.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends plan_feature_mapperFindFirstOrThrowArgs>(args?: SelectSubset<T, plan_feature_mapperFindFirstOrThrowArgs<ExtArgs>>): Prisma__plan_feature_mapperClient<$Result.GetResult<Prisma.$plan_feature_mapperPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Plan_feature_mappers that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {plan_feature_mapperFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Plan_feature_mappers
+     * const plan_feature_mappers = await prisma.plan_feature_mapper.findMany()
+     * 
+     * // Get first 10 Plan_feature_mappers
+     * const plan_feature_mappers = await prisma.plan_feature_mapper.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const plan_feature_mapperWithIdOnly = await prisma.plan_feature_mapper.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends plan_feature_mapperFindManyArgs>(args?: SelectSubset<T, plan_feature_mapperFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$plan_feature_mapperPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Plan_feature_mapper.
+     * @param {plan_feature_mapperCreateArgs} args - Arguments to create a Plan_feature_mapper.
+     * @example
+     * // Create one Plan_feature_mapper
+     * const Plan_feature_mapper = await prisma.plan_feature_mapper.create({
+     *   data: {
+     *     // ... data to create a Plan_feature_mapper
+     *   }
+     * })
+     * 
+     */
+    create<T extends plan_feature_mapperCreateArgs>(args: SelectSubset<T, plan_feature_mapperCreateArgs<ExtArgs>>): Prisma__plan_feature_mapperClient<$Result.GetResult<Prisma.$plan_feature_mapperPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Plan_feature_mappers.
+     * @param {plan_feature_mapperCreateManyArgs} args - Arguments to create many Plan_feature_mappers.
+     * @example
+     * // Create many Plan_feature_mappers
+     * const plan_feature_mapper = await prisma.plan_feature_mapper.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends plan_feature_mapperCreateManyArgs>(args?: SelectSubset<T, plan_feature_mapperCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Plan_feature_mappers and returns the data saved in the database.
+     * @param {plan_feature_mapperCreateManyAndReturnArgs} args - Arguments to create many Plan_feature_mappers.
+     * @example
+     * // Create many Plan_feature_mappers
+     * const plan_feature_mapper = await prisma.plan_feature_mapper.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Plan_feature_mappers and only return the `id`
+     * const plan_feature_mapperWithIdOnly = await prisma.plan_feature_mapper.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends plan_feature_mapperCreateManyAndReturnArgs>(args?: SelectSubset<T, plan_feature_mapperCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$plan_feature_mapperPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Plan_feature_mapper.
+     * @param {plan_feature_mapperDeleteArgs} args - Arguments to delete one Plan_feature_mapper.
+     * @example
+     * // Delete one Plan_feature_mapper
+     * const Plan_feature_mapper = await prisma.plan_feature_mapper.delete({
+     *   where: {
+     *     // ... filter to delete one Plan_feature_mapper
+     *   }
+     * })
+     * 
+     */
+    delete<T extends plan_feature_mapperDeleteArgs>(args: SelectSubset<T, plan_feature_mapperDeleteArgs<ExtArgs>>): Prisma__plan_feature_mapperClient<$Result.GetResult<Prisma.$plan_feature_mapperPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Plan_feature_mapper.
+     * @param {plan_feature_mapperUpdateArgs} args - Arguments to update one Plan_feature_mapper.
+     * @example
+     * // Update one Plan_feature_mapper
+     * const plan_feature_mapper = await prisma.plan_feature_mapper.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends plan_feature_mapperUpdateArgs>(args: SelectSubset<T, plan_feature_mapperUpdateArgs<ExtArgs>>): Prisma__plan_feature_mapperClient<$Result.GetResult<Prisma.$plan_feature_mapperPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Plan_feature_mappers.
+     * @param {plan_feature_mapperDeleteManyArgs} args - Arguments to filter Plan_feature_mappers to delete.
+     * @example
+     * // Delete a few Plan_feature_mappers
+     * const { count } = await prisma.plan_feature_mapper.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends plan_feature_mapperDeleteManyArgs>(args?: SelectSubset<T, plan_feature_mapperDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Plan_feature_mappers.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {plan_feature_mapperUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Plan_feature_mappers
+     * const plan_feature_mapper = await prisma.plan_feature_mapper.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends plan_feature_mapperUpdateManyArgs>(args: SelectSubset<T, plan_feature_mapperUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Plan_feature_mappers and returns the data updated in the database.
+     * @param {plan_feature_mapperUpdateManyAndReturnArgs} args - Arguments to update many Plan_feature_mappers.
+     * @example
+     * // Update many Plan_feature_mappers
+     * const plan_feature_mapper = await prisma.plan_feature_mapper.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Plan_feature_mappers and only return the `id`
+     * const plan_feature_mapperWithIdOnly = await prisma.plan_feature_mapper.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends plan_feature_mapperUpdateManyAndReturnArgs>(args: SelectSubset<T, plan_feature_mapperUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$plan_feature_mapperPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Plan_feature_mapper.
+     * @param {plan_feature_mapperUpsertArgs} args - Arguments to update or create a Plan_feature_mapper.
+     * @example
+     * // Update or create a Plan_feature_mapper
+     * const plan_feature_mapper = await prisma.plan_feature_mapper.upsert({
+     *   create: {
+     *     // ... data to create a Plan_feature_mapper
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Plan_feature_mapper we want to update
+     *   }
+     * })
+     */
+    upsert<T extends plan_feature_mapperUpsertArgs>(args: SelectSubset<T, plan_feature_mapperUpsertArgs<ExtArgs>>): Prisma__plan_feature_mapperClient<$Result.GetResult<Prisma.$plan_feature_mapperPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Plan_feature_mappers.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {plan_feature_mapperCountArgs} args - Arguments to filter Plan_feature_mappers to count.
+     * @example
+     * // Count the number of Plan_feature_mappers
+     * const count = await prisma.plan_feature_mapper.count({
+     *   where: {
+     *     // ... the filter for the Plan_feature_mappers we want to count
+     *   }
+     * })
+    **/
+    count<T extends plan_feature_mapperCountArgs>(
+      args?: Subset<T, plan_feature_mapperCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Plan_feature_mapperCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Plan_feature_mapper.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Plan_feature_mapperAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Plan_feature_mapperAggregateArgs>(args: Subset<T, Plan_feature_mapperAggregateArgs>): Prisma.PrismaPromise<GetPlan_feature_mapperAggregateType<T>>
+
+    /**
+     * Group by Plan_feature_mapper.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {plan_feature_mapperGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends plan_feature_mapperGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: plan_feature_mapperGroupByArgs['orderBy'] }
+        : { orderBy?: plan_feature_mapperGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, plan_feature_mapperGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPlan_feature_mapperGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the plan_feature_mapper model
+   */
+  readonly fields: plan_feature_mapperFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for plan_feature_mapper.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__plan_feature_mapperClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    app_features<T extends app_featuresDefaultArgs<ExtArgs> = {}>(args?: Subset<T, app_featuresDefaultArgs<ExtArgs>>): Prisma__app_featuresClient<$Result.GetResult<Prisma.$app_featuresPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    SubscriptionPlan<T extends plan_feature_mapper$SubscriptionPlanArgs<ExtArgs> = {}>(args?: Subset<T, plan_feature_mapper$SubscriptionPlanArgs<ExtArgs>>): Prisma__SubscriptionPlanClient<$Result.GetResult<Prisma.$SubscriptionPlanPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the plan_feature_mapper model
+   */
+  interface plan_feature_mapperFieldRefs {
+    readonly id: FieldRef<"plan_feature_mapper", 'String'>
+    readonly plan_id: FieldRef<"plan_feature_mapper", 'String'>
+    readonly feature_id: FieldRef<"plan_feature_mapper", 'String'>
+    readonly custom_limit: FieldRef<"plan_feature_mapper", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * plan_feature_mapper findUnique
+   */
+  export type plan_feature_mapperFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the plan_feature_mapper
+     */
+    select?: plan_feature_mapperSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the plan_feature_mapper
+     */
+    omit?: plan_feature_mapperOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: plan_feature_mapperInclude<ExtArgs> | null
+    /**
+     * Filter, which plan_feature_mapper to fetch.
+     */
+    where: plan_feature_mapperWhereUniqueInput
+  }
+
+  /**
+   * plan_feature_mapper findUniqueOrThrow
+   */
+  export type plan_feature_mapperFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the plan_feature_mapper
+     */
+    select?: plan_feature_mapperSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the plan_feature_mapper
+     */
+    omit?: plan_feature_mapperOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: plan_feature_mapperInclude<ExtArgs> | null
+    /**
+     * Filter, which plan_feature_mapper to fetch.
+     */
+    where: plan_feature_mapperWhereUniqueInput
+  }
+
+  /**
+   * plan_feature_mapper findFirst
+   */
+  export type plan_feature_mapperFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the plan_feature_mapper
+     */
+    select?: plan_feature_mapperSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the plan_feature_mapper
+     */
+    omit?: plan_feature_mapperOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: plan_feature_mapperInclude<ExtArgs> | null
+    /**
+     * Filter, which plan_feature_mapper to fetch.
+     */
+    where?: plan_feature_mapperWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of plan_feature_mappers to fetch.
+     */
+    orderBy?: plan_feature_mapperOrderByWithRelationInput | plan_feature_mapperOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for plan_feature_mappers.
+     */
+    cursor?: plan_feature_mapperWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` plan_feature_mappers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` plan_feature_mappers.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of plan_feature_mappers.
+     */
+    distinct?: Plan_feature_mapperScalarFieldEnum | Plan_feature_mapperScalarFieldEnum[]
+  }
+
+  /**
+   * plan_feature_mapper findFirstOrThrow
+   */
+  export type plan_feature_mapperFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the plan_feature_mapper
+     */
+    select?: plan_feature_mapperSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the plan_feature_mapper
+     */
+    omit?: plan_feature_mapperOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: plan_feature_mapperInclude<ExtArgs> | null
+    /**
+     * Filter, which plan_feature_mapper to fetch.
+     */
+    where?: plan_feature_mapperWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of plan_feature_mappers to fetch.
+     */
+    orderBy?: plan_feature_mapperOrderByWithRelationInput | plan_feature_mapperOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for plan_feature_mappers.
+     */
+    cursor?: plan_feature_mapperWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` plan_feature_mappers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` plan_feature_mappers.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of plan_feature_mappers.
+     */
+    distinct?: Plan_feature_mapperScalarFieldEnum | Plan_feature_mapperScalarFieldEnum[]
+  }
+
+  /**
+   * plan_feature_mapper findMany
+   */
+  export type plan_feature_mapperFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the plan_feature_mapper
+     */
+    select?: plan_feature_mapperSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the plan_feature_mapper
+     */
+    omit?: plan_feature_mapperOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: plan_feature_mapperInclude<ExtArgs> | null
+    /**
+     * Filter, which plan_feature_mappers to fetch.
+     */
+    where?: plan_feature_mapperWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of plan_feature_mappers to fetch.
+     */
+    orderBy?: plan_feature_mapperOrderByWithRelationInput | plan_feature_mapperOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing plan_feature_mappers.
+     */
+    cursor?: plan_feature_mapperWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` plan_feature_mappers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` plan_feature_mappers.
+     */
+    skip?: number
+    distinct?: Plan_feature_mapperScalarFieldEnum | Plan_feature_mapperScalarFieldEnum[]
+  }
+
+  /**
+   * plan_feature_mapper create
+   */
+  export type plan_feature_mapperCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the plan_feature_mapper
+     */
+    select?: plan_feature_mapperSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the plan_feature_mapper
+     */
+    omit?: plan_feature_mapperOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: plan_feature_mapperInclude<ExtArgs> | null
+    /**
+     * The data needed to create a plan_feature_mapper.
+     */
+    data: XOR<plan_feature_mapperCreateInput, plan_feature_mapperUncheckedCreateInput>
+  }
+
+  /**
+   * plan_feature_mapper createMany
+   */
+  export type plan_feature_mapperCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many plan_feature_mappers.
+     */
+    data: plan_feature_mapperCreateManyInput | plan_feature_mapperCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * plan_feature_mapper createManyAndReturn
+   */
+  export type plan_feature_mapperCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the plan_feature_mapper
+     */
+    select?: plan_feature_mapperSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the plan_feature_mapper
+     */
+    omit?: plan_feature_mapperOmit<ExtArgs> | null
+    /**
+     * The data used to create many plan_feature_mappers.
+     */
+    data: plan_feature_mapperCreateManyInput | plan_feature_mapperCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: plan_feature_mapperIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * plan_feature_mapper update
+   */
+  export type plan_feature_mapperUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the plan_feature_mapper
+     */
+    select?: plan_feature_mapperSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the plan_feature_mapper
+     */
+    omit?: plan_feature_mapperOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: plan_feature_mapperInclude<ExtArgs> | null
+    /**
+     * The data needed to update a plan_feature_mapper.
+     */
+    data: XOR<plan_feature_mapperUpdateInput, plan_feature_mapperUncheckedUpdateInput>
+    /**
+     * Choose, which plan_feature_mapper to update.
+     */
+    where: plan_feature_mapperWhereUniqueInput
+  }
+
+  /**
+   * plan_feature_mapper updateMany
+   */
+  export type plan_feature_mapperUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update plan_feature_mappers.
+     */
+    data: XOR<plan_feature_mapperUpdateManyMutationInput, plan_feature_mapperUncheckedUpdateManyInput>
+    /**
+     * Filter which plan_feature_mappers to update
+     */
+    where?: plan_feature_mapperWhereInput
+    /**
+     * Limit how many plan_feature_mappers to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * plan_feature_mapper updateManyAndReturn
+   */
+  export type plan_feature_mapperUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the plan_feature_mapper
+     */
+    select?: plan_feature_mapperSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the plan_feature_mapper
+     */
+    omit?: plan_feature_mapperOmit<ExtArgs> | null
+    /**
+     * The data used to update plan_feature_mappers.
+     */
+    data: XOR<plan_feature_mapperUpdateManyMutationInput, plan_feature_mapperUncheckedUpdateManyInput>
+    /**
+     * Filter which plan_feature_mappers to update
+     */
+    where?: plan_feature_mapperWhereInput
+    /**
+     * Limit how many plan_feature_mappers to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: plan_feature_mapperIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * plan_feature_mapper upsert
+   */
+  export type plan_feature_mapperUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the plan_feature_mapper
+     */
+    select?: plan_feature_mapperSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the plan_feature_mapper
+     */
+    omit?: plan_feature_mapperOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: plan_feature_mapperInclude<ExtArgs> | null
+    /**
+     * The filter to search for the plan_feature_mapper to update in case it exists.
+     */
+    where: plan_feature_mapperWhereUniqueInput
+    /**
+     * In case the plan_feature_mapper found by the `where` argument doesn't exist, create a new plan_feature_mapper with this data.
+     */
+    create: XOR<plan_feature_mapperCreateInput, plan_feature_mapperUncheckedCreateInput>
+    /**
+     * In case the plan_feature_mapper was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<plan_feature_mapperUpdateInput, plan_feature_mapperUncheckedUpdateInput>
+  }
+
+  /**
+   * plan_feature_mapper delete
+   */
+  export type plan_feature_mapperDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the plan_feature_mapper
+     */
+    select?: plan_feature_mapperSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the plan_feature_mapper
+     */
+    omit?: plan_feature_mapperOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: plan_feature_mapperInclude<ExtArgs> | null
+    /**
+     * Filter which plan_feature_mapper to delete.
+     */
+    where: plan_feature_mapperWhereUniqueInput
+  }
+
+  /**
+   * plan_feature_mapper deleteMany
+   */
+  export type plan_feature_mapperDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which plan_feature_mappers to delete
+     */
+    where?: plan_feature_mapperWhereInput
+    /**
+     * Limit how many plan_feature_mappers to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * plan_feature_mapper.SubscriptionPlan
+   */
+  export type plan_feature_mapper$SubscriptionPlanArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubscriptionPlan
+     */
+    select?: SubscriptionPlanSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SubscriptionPlan
+     */
+    omit?: SubscriptionPlanOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubscriptionPlanInclude<ExtArgs> | null
+    where?: SubscriptionPlanWhereInput
+  }
+
+  /**
+   * plan_feature_mapper without action
+   */
+  export type plan_feature_mapperDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the plan_feature_mapper
+     */
+    select?: plan_feature_mapperSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the plan_feature_mapper
+     */
+    omit?: plan_feature_mapperOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: plan_feature_mapperInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -9592,7 +12056,8 @@ export namespace Prisma {
     amount: 'amount',
     currency: 'currency',
     createdAt: 'createdAt',
-    billingcycle: 'billingcycle'
+    billingcycle: 'billingcycle',
+    offer_price: 'offer_price'
   };
 
   export type SubscriptionPlanScalarFieldEnum = (typeof SubscriptionPlanScalarFieldEnum)[keyof typeof SubscriptionPlanScalarFieldEnum]
@@ -9696,6 +12161,26 @@ export namespace Prisma {
   export type Credit_transactionsScalarFieldEnum = (typeof Credit_transactionsScalarFieldEnum)[keyof typeof Credit_transactionsScalarFieldEnum]
 
 
+  export const App_featuresScalarFieldEnum: {
+    id: 'id',
+    title: 'title',
+    limit: 'limit',
+    description: 'description'
+  };
+
+  export type App_featuresScalarFieldEnum = (typeof App_featuresScalarFieldEnum)[keyof typeof App_featuresScalarFieldEnum]
+
+
+  export const Plan_feature_mapperScalarFieldEnum: {
+    id: 'id',
+    plan_id: 'plan_id',
+    feature_id: 'feature_id',
+    custom_limit: 'custom_limit'
+  };
+
+  export type Plan_feature_mapperScalarFieldEnum = (typeof Plan_feature_mapperScalarFieldEnum)[keyof typeof Plan_feature_mapperScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
@@ -9704,19 +12189,19 @@ export namespace Prisma {
   export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
 
 
-  export const JsonNullValueInput: {
-    JsonNull: typeof JsonNull
-  };
-
-  export type JsonNullValueInput = (typeof JsonNullValueInput)[keyof typeof JsonNullValueInput]
-
-
   export const NullableJsonNullValueInput: {
     DbNull: typeof DbNull,
     JsonNull: typeof JsonNull
   };
 
   export type NullableJsonNullValueInput = (typeof NullableJsonNullValueInput)[keyof typeof NullableJsonNullValueInput]
+
+
+  export const JsonNullValueInput: {
+    JsonNull: typeof JsonNull
+  };
+
+  export type JsonNullValueInput = (typeof JsonNullValueInput)[keyof typeof JsonNullValueInput]
 
 
   export const QueryMode: {
@@ -9806,6 +12291,20 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Decimal'
+   */
+  export type DecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal'>
+    
+
+
+  /**
+   * Reference to a field of type 'Decimal[]'
+   */
+  export type ListDecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal[]'>
+    
+
+
+  /**
    * Reference to a field of type 'SubscriptionStatus'
    */
   export type EnumSubscriptionStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SubscriptionStatus'>
@@ -9877,27 +12376,31 @@ export namespace Prisma {
     NOT?: SubscriptionPlanWhereInput | SubscriptionPlanWhereInput[]
     id?: StringFilter<"SubscriptionPlan"> | string
     name?: StringFilter<"SubscriptionPlan"> | string
-    description?: StringFilter<"SubscriptionPlan"> | string
-    features?: JsonFilter<"SubscriptionPlan">
+    description?: StringNullableFilter<"SubscriptionPlan"> | string | null
+    features?: JsonNullableFilter<"SubscriptionPlan">
     countryCode?: StringFilter<"SubscriptionPlan"> | string
     amount?: IntFilter<"SubscriptionPlan"> | number
     currency?: StringFilter<"SubscriptionPlan"> | string
     createdAt?: DateTimeFilter<"SubscriptionPlan"> | Date | string
     billingcycle?: StringNullableFilter<"SubscriptionPlan"> | string | null
+    offer_price?: DecimalNullableFilter<"SubscriptionPlan"> | Decimal | DecimalJsLike | number | string | null
     subscriptions?: SubscriptionListRelationFilter
+    plan_feature_mapper?: Plan_feature_mapperListRelationFilter
   }
 
   export type SubscriptionPlanOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
-    description?: SortOrder
-    features?: SortOrder
+    description?: SortOrderInput | SortOrder
+    features?: SortOrderInput | SortOrder
     countryCode?: SortOrder
     amount?: SortOrder
     currency?: SortOrder
     createdAt?: SortOrder
     billingcycle?: SortOrderInput | SortOrder
+    offer_price?: SortOrderInput | SortOrder
     subscriptions?: SubscriptionOrderByRelationAggregateInput
+    plan_feature_mapper?: plan_feature_mapperOrderByRelationAggregateInput
   }
 
   export type SubscriptionPlanWhereUniqueInput = Prisma.AtLeast<{
@@ -9906,26 +12409,29 @@ export namespace Prisma {
     AND?: SubscriptionPlanWhereInput | SubscriptionPlanWhereInput[]
     OR?: SubscriptionPlanWhereInput[]
     NOT?: SubscriptionPlanWhereInput | SubscriptionPlanWhereInput[]
-    description?: StringFilter<"SubscriptionPlan"> | string
-    features?: JsonFilter<"SubscriptionPlan">
+    description?: StringNullableFilter<"SubscriptionPlan"> | string | null
+    features?: JsonNullableFilter<"SubscriptionPlan">
     countryCode?: StringFilter<"SubscriptionPlan"> | string
     amount?: IntFilter<"SubscriptionPlan"> | number
     currency?: StringFilter<"SubscriptionPlan"> | string
     createdAt?: DateTimeFilter<"SubscriptionPlan"> | Date | string
     billingcycle?: StringNullableFilter<"SubscriptionPlan"> | string | null
+    offer_price?: DecimalNullableFilter<"SubscriptionPlan"> | Decimal | DecimalJsLike | number | string | null
     subscriptions?: SubscriptionListRelationFilter
+    plan_feature_mapper?: Plan_feature_mapperListRelationFilter
   }, "id" | "name">
 
   export type SubscriptionPlanOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
-    description?: SortOrder
-    features?: SortOrder
+    description?: SortOrderInput | SortOrder
+    features?: SortOrderInput | SortOrder
     countryCode?: SortOrder
     amount?: SortOrder
     currency?: SortOrder
     createdAt?: SortOrder
     billingcycle?: SortOrderInput | SortOrder
+    offer_price?: SortOrderInput | SortOrder
     _count?: SubscriptionPlanCountOrderByAggregateInput
     _avg?: SubscriptionPlanAvgOrderByAggregateInput
     _max?: SubscriptionPlanMaxOrderByAggregateInput
@@ -9939,13 +12445,14 @@ export namespace Prisma {
     NOT?: SubscriptionPlanScalarWhereWithAggregatesInput | SubscriptionPlanScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"SubscriptionPlan"> | string
     name?: StringWithAggregatesFilter<"SubscriptionPlan"> | string
-    description?: StringWithAggregatesFilter<"SubscriptionPlan"> | string
-    features?: JsonWithAggregatesFilter<"SubscriptionPlan">
+    description?: StringNullableWithAggregatesFilter<"SubscriptionPlan"> | string | null
+    features?: JsonNullableWithAggregatesFilter<"SubscriptionPlan">
     countryCode?: StringWithAggregatesFilter<"SubscriptionPlan"> | string
     amount?: IntWithAggregatesFilter<"SubscriptionPlan"> | number
     currency?: StringWithAggregatesFilter<"SubscriptionPlan"> | string
     createdAt?: DateTimeWithAggregatesFilter<"SubscriptionPlan"> | Date | string
     billingcycle?: StringNullableWithAggregatesFilter<"SubscriptionPlan"> | string | null
+    offer_price?: DecimalNullableWithAggregatesFilter<"SubscriptionPlan"> | Decimal | DecimalJsLike | number | string | null
   }
 
   export type SubscriptionWhereInput = {
@@ -10453,92 +12960,211 @@ export namespace Prisma {
     expiry_date?: DateTimeNullableWithAggregatesFilter<"credit_transactions"> | Date | string | null
   }
 
+  export type app_featuresWhereInput = {
+    AND?: app_featuresWhereInput | app_featuresWhereInput[]
+    OR?: app_featuresWhereInput[]
+    NOT?: app_featuresWhereInput | app_featuresWhereInput[]
+    id?: UuidFilter<"app_features"> | string
+    title?: StringFilter<"app_features"> | string
+    limit?: IntNullableFilter<"app_features"> | number | null
+    description?: StringNullableFilter<"app_features"> | string | null
+    plan_feature_mapper?: Plan_feature_mapperListRelationFilter
+  }
+
+  export type app_featuresOrderByWithRelationInput = {
+    id?: SortOrder
+    title?: SortOrder
+    limit?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
+    plan_feature_mapper?: plan_feature_mapperOrderByRelationAggregateInput
+  }
+
+  export type app_featuresWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: app_featuresWhereInput | app_featuresWhereInput[]
+    OR?: app_featuresWhereInput[]
+    NOT?: app_featuresWhereInput | app_featuresWhereInput[]
+    title?: StringFilter<"app_features"> | string
+    limit?: IntNullableFilter<"app_features"> | number | null
+    description?: StringNullableFilter<"app_features"> | string | null
+    plan_feature_mapper?: Plan_feature_mapperListRelationFilter
+  }, "id">
+
+  export type app_featuresOrderByWithAggregationInput = {
+    id?: SortOrder
+    title?: SortOrder
+    limit?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
+    _count?: app_featuresCountOrderByAggregateInput
+    _avg?: app_featuresAvgOrderByAggregateInput
+    _max?: app_featuresMaxOrderByAggregateInput
+    _min?: app_featuresMinOrderByAggregateInput
+    _sum?: app_featuresSumOrderByAggregateInput
+  }
+
+  export type app_featuresScalarWhereWithAggregatesInput = {
+    AND?: app_featuresScalarWhereWithAggregatesInput | app_featuresScalarWhereWithAggregatesInput[]
+    OR?: app_featuresScalarWhereWithAggregatesInput[]
+    NOT?: app_featuresScalarWhereWithAggregatesInput | app_featuresScalarWhereWithAggregatesInput[]
+    id?: UuidWithAggregatesFilter<"app_features"> | string
+    title?: StringWithAggregatesFilter<"app_features"> | string
+    limit?: IntNullableWithAggregatesFilter<"app_features"> | number | null
+    description?: StringNullableWithAggregatesFilter<"app_features"> | string | null
+  }
+
+  export type plan_feature_mapperWhereInput = {
+    AND?: plan_feature_mapperWhereInput | plan_feature_mapperWhereInput[]
+    OR?: plan_feature_mapperWhereInput[]
+    NOT?: plan_feature_mapperWhereInput | plan_feature_mapperWhereInput[]
+    id?: UuidFilter<"plan_feature_mapper"> | string
+    plan_id?: StringNullableFilter<"plan_feature_mapper"> | string | null
+    feature_id?: UuidFilter<"plan_feature_mapper"> | string
+    custom_limit?: IntNullableFilter<"plan_feature_mapper"> | number | null
+    app_features?: XOR<App_featuresScalarRelationFilter, app_featuresWhereInput>
+    SubscriptionPlan?: XOR<SubscriptionPlanNullableScalarRelationFilter, SubscriptionPlanWhereInput> | null
+  }
+
+  export type plan_feature_mapperOrderByWithRelationInput = {
+    id?: SortOrder
+    plan_id?: SortOrderInput | SortOrder
+    feature_id?: SortOrder
+    custom_limit?: SortOrderInput | SortOrder
+    app_features?: app_featuresOrderByWithRelationInput
+    SubscriptionPlan?: SubscriptionPlanOrderByWithRelationInput
+  }
+
+  export type plan_feature_mapperWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    plan_id_feature_id?: plan_feature_mapperPlan_idFeature_idCompoundUniqueInput
+    AND?: plan_feature_mapperWhereInput | plan_feature_mapperWhereInput[]
+    OR?: plan_feature_mapperWhereInput[]
+    NOT?: plan_feature_mapperWhereInput | plan_feature_mapperWhereInput[]
+    plan_id?: StringNullableFilter<"plan_feature_mapper"> | string | null
+    feature_id?: UuidFilter<"plan_feature_mapper"> | string
+    custom_limit?: IntNullableFilter<"plan_feature_mapper"> | number | null
+    app_features?: XOR<App_featuresScalarRelationFilter, app_featuresWhereInput>
+    SubscriptionPlan?: XOR<SubscriptionPlanNullableScalarRelationFilter, SubscriptionPlanWhereInput> | null
+  }, "id" | "plan_id_feature_id">
+
+  export type plan_feature_mapperOrderByWithAggregationInput = {
+    id?: SortOrder
+    plan_id?: SortOrderInput | SortOrder
+    feature_id?: SortOrder
+    custom_limit?: SortOrderInput | SortOrder
+    _count?: plan_feature_mapperCountOrderByAggregateInput
+    _avg?: plan_feature_mapperAvgOrderByAggregateInput
+    _max?: plan_feature_mapperMaxOrderByAggregateInput
+    _min?: plan_feature_mapperMinOrderByAggregateInput
+    _sum?: plan_feature_mapperSumOrderByAggregateInput
+  }
+
+  export type plan_feature_mapperScalarWhereWithAggregatesInput = {
+    AND?: plan_feature_mapperScalarWhereWithAggregatesInput | plan_feature_mapperScalarWhereWithAggregatesInput[]
+    OR?: plan_feature_mapperScalarWhereWithAggregatesInput[]
+    NOT?: plan_feature_mapperScalarWhereWithAggregatesInput | plan_feature_mapperScalarWhereWithAggregatesInput[]
+    id?: UuidWithAggregatesFilter<"plan_feature_mapper"> | string
+    plan_id?: StringNullableWithAggregatesFilter<"plan_feature_mapper"> | string | null
+    feature_id?: UuidWithAggregatesFilter<"plan_feature_mapper"> | string
+    custom_limit?: IntNullableWithAggregatesFilter<"plan_feature_mapper"> | number | null
+  }
+
   export type SubscriptionPlanCreateInput = {
     id?: string
     name: string
-    description: string
-    features: JsonNullValueInput | InputJsonValue
+    description?: string | null
+    features?: NullableJsonNullValueInput | InputJsonValue
     countryCode: string
     amount: number
     currency?: string
     createdAt?: Date | string
     billingcycle?: string | null
+    offer_price?: Decimal | DecimalJsLike | number | string | null
     subscriptions?: SubscriptionCreateNestedManyWithoutPlanInput
+    plan_feature_mapper?: plan_feature_mapperCreateNestedManyWithoutSubscriptionPlanInput
   }
 
   export type SubscriptionPlanUncheckedCreateInput = {
     id?: string
     name: string
-    description: string
-    features: JsonNullValueInput | InputJsonValue
+    description?: string | null
+    features?: NullableJsonNullValueInput | InputJsonValue
     countryCode: string
     amount: number
     currency?: string
     createdAt?: Date | string
     billingcycle?: string | null
+    offer_price?: Decimal | DecimalJsLike | number | string | null
     subscriptions?: SubscriptionUncheckedCreateNestedManyWithoutPlanInput
+    plan_feature_mapper?: plan_feature_mapperUncheckedCreateNestedManyWithoutSubscriptionPlanInput
   }
 
   export type SubscriptionPlanUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    features?: JsonNullValueInput | InputJsonValue
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    features?: NullableJsonNullValueInput | InputJsonValue
     countryCode?: StringFieldUpdateOperationsInput | string
     amount?: IntFieldUpdateOperationsInput | number
     currency?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     billingcycle?: NullableStringFieldUpdateOperationsInput | string | null
+    offer_price?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     subscriptions?: SubscriptionUpdateManyWithoutPlanNestedInput
+    plan_feature_mapper?: plan_feature_mapperUpdateManyWithoutSubscriptionPlanNestedInput
   }
 
   export type SubscriptionPlanUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    features?: JsonNullValueInput | InputJsonValue
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    features?: NullableJsonNullValueInput | InputJsonValue
     countryCode?: StringFieldUpdateOperationsInput | string
     amount?: IntFieldUpdateOperationsInput | number
     currency?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     billingcycle?: NullableStringFieldUpdateOperationsInput | string | null
+    offer_price?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
     subscriptions?: SubscriptionUncheckedUpdateManyWithoutPlanNestedInput
+    plan_feature_mapper?: plan_feature_mapperUncheckedUpdateManyWithoutSubscriptionPlanNestedInput
   }
 
   export type SubscriptionPlanCreateManyInput = {
     id?: string
     name: string
-    description: string
-    features: JsonNullValueInput | InputJsonValue
+    description?: string | null
+    features?: NullableJsonNullValueInput | InputJsonValue
     countryCode: string
     amount: number
     currency?: string
     createdAt?: Date | string
     billingcycle?: string | null
+    offer_price?: Decimal | DecimalJsLike | number | string | null
   }
 
   export type SubscriptionPlanUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    features?: JsonNullValueInput | InputJsonValue
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    features?: NullableJsonNullValueInput | InputJsonValue
     countryCode?: StringFieldUpdateOperationsInput | string
     amount?: IntFieldUpdateOperationsInput | number
     currency?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     billingcycle?: NullableStringFieldUpdateOperationsInput | string | null
+    offer_price?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
   }
 
   export type SubscriptionPlanUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    features?: JsonNullValueInput | InputJsonValue
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    features?: NullableJsonNullValueInput | InputJsonValue
     countryCode?: StringFieldUpdateOperationsInput | string
     amount?: IntFieldUpdateOperationsInput | number
     currency?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     billingcycle?: NullableStringFieldUpdateOperationsInput | string | null
+    offer_price?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
   }
 
   export type SubscriptionCreateInput = {
@@ -11112,6 +13738,106 @@ export namespace Prisma {
     expiry_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
+  export type app_featuresCreateInput = {
+    id?: string
+    title: string
+    limit?: number | null
+    description?: string | null
+    plan_feature_mapper?: plan_feature_mapperCreateNestedManyWithoutApp_featuresInput
+  }
+
+  export type app_featuresUncheckedCreateInput = {
+    id?: string
+    title: string
+    limit?: number | null
+    description?: string | null
+    plan_feature_mapper?: plan_feature_mapperUncheckedCreateNestedManyWithoutApp_featuresInput
+  }
+
+  export type app_featuresUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    limit?: NullableIntFieldUpdateOperationsInput | number | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    plan_feature_mapper?: plan_feature_mapperUpdateManyWithoutApp_featuresNestedInput
+  }
+
+  export type app_featuresUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    limit?: NullableIntFieldUpdateOperationsInput | number | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    plan_feature_mapper?: plan_feature_mapperUncheckedUpdateManyWithoutApp_featuresNestedInput
+  }
+
+  export type app_featuresCreateManyInput = {
+    id?: string
+    title: string
+    limit?: number | null
+    description?: string | null
+  }
+
+  export type app_featuresUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    limit?: NullableIntFieldUpdateOperationsInput | number | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type app_featuresUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    limit?: NullableIntFieldUpdateOperationsInput | number | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type plan_feature_mapperCreateInput = {
+    id?: string
+    custom_limit?: number | null
+    app_features: app_featuresCreateNestedOneWithoutPlan_feature_mapperInput
+    SubscriptionPlan?: SubscriptionPlanCreateNestedOneWithoutPlan_feature_mapperInput
+  }
+
+  export type plan_feature_mapperUncheckedCreateInput = {
+    id?: string
+    plan_id?: string | null
+    feature_id: string
+    custom_limit?: number | null
+  }
+
+  export type plan_feature_mapperUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    custom_limit?: NullableIntFieldUpdateOperationsInput | number | null
+    app_features?: app_featuresUpdateOneRequiredWithoutPlan_feature_mapperNestedInput
+    SubscriptionPlan?: SubscriptionPlanUpdateOneWithoutPlan_feature_mapperNestedInput
+  }
+
+  export type plan_feature_mapperUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    plan_id?: NullableStringFieldUpdateOperationsInput | string | null
+    feature_id?: StringFieldUpdateOperationsInput | string
+    custom_limit?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type plan_feature_mapperCreateManyInput = {
+    id?: string
+    plan_id?: string | null
+    feature_id: string
+    custom_limit?: number | null
+  }
+
+  export type plan_feature_mapperUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    custom_limit?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type plan_feature_mapperUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    plan_id?: NullableStringFieldUpdateOperationsInput | string | null
+    feature_id?: StringFieldUpdateOperationsInput | string
+    custom_limit?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -11126,14 +13852,29 @@ export namespace Prisma {
     mode?: QueryMode
     not?: NestedStringFilter<$PrismaModel> | string
   }
-  export type JsonFilter<$PrismaModel = never> =
-    | PatchUndefined<
-        Either<Required<JsonFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonFilterBase<$PrismaModel>>, 'path'>>,
-        Required<JsonFilterBase<$PrismaModel>>
-      >
-    | OptionalFlat<Omit<Required<JsonFilterBase<$PrismaModel>>, 'path'>>
 
-  export type JsonFilterBase<$PrismaModel = never> = {
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+  export type JsonNullableFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonNullableFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonNullableFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonNullableFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonNullableFilterBase<$PrismaModel = never> = {
     equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
     path?: string[]
     mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
@@ -11172,19 +13913,15 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
-  export type StringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    mode?: QueryMode
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  export type DecimalNullableFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel> | null
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalNullableFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string | null
   }
 
   export type SubscriptionListRelationFilter = {
@@ -11193,12 +13930,22 @@ export namespace Prisma {
     none?: SubscriptionWhereInput
   }
 
+  export type Plan_feature_mapperListRelationFilter = {
+    every?: plan_feature_mapperWhereInput
+    some?: plan_feature_mapperWhereInput
+    none?: plan_feature_mapperWhereInput
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
   }
 
   export type SubscriptionOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type plan_feature_mapperOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -11212,10 +13959,12 @@ export namespace Prisma {
     currency?: SortOrder
     createdAt?: SortOrder
     billingcycle?: SortOrder
+    offer_price?: SortOrder
   }
 
   export type SubscriptionPlanAvgOrderByAggregateInput = {
     amount?: SortOrder
+    offer_price?: SortOrder
   }
 
   export type SubscriptionPlanMaxOrderByAggregateInput = {
@@ -11227,6 +13976,7 @@ export namespace Prisma {
     currency?: SortOrder
     createdAt?: SortOrder
     billingcycle?: SortOrder
+    offer_price?: SortOrder
   }
 
   export type SubscriptionPlanMinOrderByAggregateInput = {
@@ -11238,10 +13988,12 @@ export namespace Prisma {
     currency?: SortOrder
     createdAt?: SortOrder
     billingcycle?: SortOrder
+    offer_price?: SortOrder
   }
 
   export type SubscriptionPlanSumOrderByAggregateInput = {
     amount?: SortOrder
+    offer_price?: SortOrder
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -11261,14 +14013,32 @@ export namespace Prisma {
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
   }
-  export type JsonWithAggregatesFilter<$PrismaModel = never> =
-    | PatchUndefined<
-        Either<Required<JsonWithAggregatesFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonWithAggregatesFilterBase<$PrismaModel>>, 'path'>>,
-        Required<JsonWithAggregatesFilterBase<$PrismaModel>>
-      >
-    | OptionalFlat<Omit<Required<JsonWithAggregatesFilterBase<$PrismaModel>>, 'path'>>
 
-  export type JsonWithAggregatesFilterBase<$PrismaModel = never> = {
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+  export type JsonNullableWithAggregatesFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonNullableWithAggregatesFilterBase<$PrismaModel = never> = {
     equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
     path?: string[]
     mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
@@ -11283,9 +14053,9 @@ export namespace Prisma {
     gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
     gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedJsonFilter<$PrismaModel>
-    _max?: NestedJsonFilter<$PrismaModel>
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedJsonNullableFilter<$PrismaModel>
+    _max?: NestedJsonNullableFilter<$PrismaModel>
   }
 
   export type IntWithAggregatesFilter<$PrismaModel = never> = {
@@ -11318,22 +14088,20 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
-  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    mode?: QueryMode
-    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+  export type DecimalNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel> | null
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalNullableWithAggregatesFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string | null
     _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedStringNullableFilter<$PrismaModel>
-    _max?: NestedStringNullableFilter<$PrismaModel>
+    _avg?: NestedDecimalNullableFilter<$PrismaModel>
+    _sum?: NestedDecimalNullableFilter<$PrismaModel>
+    _min?: NestedDecimalNullableFilter<$PrismaModel>
+    _max?: NestedDecimalNullableFilter<$PrismaModel>
   }
 
   export type EnumSubscriptionStatusFilter<$PrismaModel = never> = {
@@ -11437,6 +14205,29 @@ export namespace Prisma {
     _min?: NestedDateTimeNullableFilter<$PrismaModel>
     _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
+  export type JsonFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
 
   export type BoolFilter<$PrismaModel = never> = {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel>
@@ -11472,6 +14263,32 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     resume_url?: SortOrder
+  }
+  export type JsonWithAggregatesFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonWithAggregatesFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonWithAggregatesFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonWithAggregatesFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonWithAggregatesFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonWithAggregatesFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedJsonFilter<$PrismaModel>
+    _max?: NestedJsonFilter<$PrismaModel>
   }
 
   export type BoolWithAggregatesFilter<$PrismaModel = never> = {
@@ -11635,29 +14452,6 @@ export namespace Prisma {
     mode?: QueryMode
     not?: NestedUuidFilter<$PrismaModel> | string
   }
-  export type JsonNullableFilter<$PrismaModel = never> =
-    | PatchUndefined<
-        Either<Required<JsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonNullableFilterBase<$PrismaModel>>, 'path'>>,
-        Required<JsonNullableFilterBase<$PrismaModel>>
-      >
-    | OptionalFlat<Omit<Required<JsonNullableFilterBase<$PrismaModel>>, 'path'>>
-
-  export type JsonNullableFilterBase<$PrismaModel = never> = {
-    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-    path?: string[]
-    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
-    string_contains?: string | StringFieldRefInput<$PrismaModel>
-    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
-    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
-    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-  }
 
   export type resume_analysisCountOrderByAggregateInput = {
     id?: SortOrder
@@ -11716,32 +14510,6 @@ export namespace Prisma {
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
   }
-  export type JsonNullableWithAggregatesFilter<$PrismaModel = never> =
-    | PatchUndefined<
-        Either<Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, 'path'>>,
-        Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>
-      >
-    | OptionalFlat<Omit<Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, 'path'>>
-
-  export type JsonNullableWithAggregatesFilterBase<$PrismaModel = never> = {
-    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-    path?: string[]
-    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
-    string_contains?: string | StringFieldRefInput<$PrismaModel>
-    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
-    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
-    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedJsonNullableFilter<$PrismaModel>
-    _max?: NestedJsonNullableFilter<$PrismaModel>
-  }
 
   export type credit_transactionsCountOrderByAggregateInput = {
     transaction_id?: SortOrder
@@ -11787,11 +14555,118 @@ export namespace Prisma {
     amount?: SortOrder
   }
 
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type app_featuresCountOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    limit?: SortOrder
+    description?: SortOrder
+  }
+
+  export type app_featuresAvgOrderByAggregateInput = {
+    limit?: SortOrder
+  }
+
+  export type app_featuresMaxOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    limit?: SortOrder
+    description?: SortOrder
+  }
+
+  export type app_featuresMinOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    limit?: SortOrder
+    description?: SortOrder
+  }
+
+  export type app_featuresSumOrderByAggregateInput = {
+    limit?: SortOrder
+  }
+
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type App_featuresScalarRelationFilter = {
+    is?: app_featuresWhereInput
+    isNot?: app_featuresWhereInput
+  }
+
+  export type SubscriptionPlanNullableScalarRelationFilter = {
+    is?: SubscriptionPlanWhereInput | null
+    isNot?: SubscriptionPlanWhereInput | null
+  }
+
+  export type plan_feature_mapperPlan_idFeature_idCompoundUniqueInput = {
+    plan_id: string
+    feature_id: string
+  }
+
+  export type plan_feature_mapperCountOrderByAggregateInput = {
+    id?: SortOrder
+    plan_id?: SortOrder
+    feature_id?: SortOrder
+    custom_limit?: SortOrder
+  }
+
+  export type plan_feature_mapperAvgOrderByAggregateInput = {
+    custom_limit?: SortOrder
+  }
+
+  export type plan_feature_mapperMaxOrderByAggregateInput = {
+    id?: SortOrder
+    plan_id?: SortOrder
+    feature_id?: SortOrder
+    custom_limit?: SortOrder
+  }
+
+  export type plan_feature_mapperMinOrderByAggregateInput = {
+    id?: SortOrder
+    plan_id?: SortOrder
+    feature_id?: SortOrder
+    custom_limit?: SortOrder
+  }
+
+  export type plan_feature_mapperSumOrderByAggregateInput = {
+    custom_limit?: SortOrder
+  }
+
   export type SubscriptionCreateNestedManyWithoutPlanInput = {
     create?: XOR<SubscriptionCreateWithoutPlanInput, SubscriptionUncheckedCreateWithoutPlanInput> | SubscriptionCreateWithoutPlanInput[] | SubscriptionUncheckedCreateWithoutPlanInput[]
     connectOrCreate?: SubscriptionCreateOrConnectWithoutPlanInput | SubscriptionCreateOrConnectWithoutPlanInput[]
     createMany?: SubscriptionCreateManyPlanInputEnvelope
     connect?: SubscriptionWhereUniqueInput | SubscriptionWhereUniqueInput[]
+  }
+
+  export type plan_feature_mapperCreateNestedManyWithoutSubscriptionPlanInput = {
+    create?: XOR<plan_feature_mapperCreateWithoutSubscriptionPlanInput, plan_feature_mapperUncheckedCreateWithoutSubscriptionPlanInput> | plan_feature_mapperCreateWithoutSubscriptionPlanInput[] | plan_feature_mapperUncheckedCreateWithoutSubscriptionPlanInput[]
+    connectOrCreate?: plan_feature_mapperCreateOrConnectWithoutSubscriptionPlanInput | plan_feature_mapperCreateOrConnectWithoutSubscriptionPlanInput[]
+    createMany?: plan_feature_mapperCreateManySubscriptionPlanInputEnvelope
+    connect?: plan_feature_mapperWhereUniqueInput | plan_feature_mapperWhereUniqueInput[]
   }
 
   export type SubscriptionUncheckedCreateNestedManyWithoutPlanInput = {
@@ -11801,8 +14676,19 @@ export namespace Prisma {
     connect?: SubscriptionWhereUniqueInput | SubscriptionWhereUniqueInput[]
   }
 
+  export type plan_feature_mapperUncheckedCreateNestedManyWithoutSubscriptionPlanInput = {
+    create?: XOR<plan_feature_mapperCreateWithoutSubscriptionPlanInput, plan_feature_mapperUncheckedCreateWithoutSubscriptionPlanInput> | plan_feature_mapperCreateWithoutSubscriptionPlanInput[] | plan_feature_mapperUncheckedCreateWithoutSubscriptionPlanInput[]
+    connectOrCreate?: plan_feature_mapperCreateOrConnectWithoutSubscriptionPlanInput | plan_feature_mapperCreateOrConnectWithoutSubscriptionPlanInput[]
+    createMany?: plan_feature_mapperCreateManySubscriptionPlanInputEnvelope
+    connect?: plan_feature_mapperWhereUniqueInput | plan_feature_mapperWhereUniqueInput[]
+  }
+
   export type StringFieldUpdateOperationsInput = {
     set?: string
+  }
+
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
   }
 
   export type IntFieldUpdateOperationsInput = {
@@ -11817,8 +14703,12 @@ export namespace Prisma {
     set?: Date | string
   }
 
-  export type NullableStringFieldUpdateOperationsInput = {
-    set?: string | null
+  export type NullableDecimalFieldUpdateOperationsInput = {
+    set?: Decimal | DecimalJsLike | number | string | null
+    increment?: Decimal | DecimalJsLike | number | string
+    decrement?: Decimal | DecimalJsLike | number | string
+    multiply?: Decimal | DecimalJsLike | number | string
+    divide?: Decimal | DecimalJsLike | number | string
   }
 
   export type SubscriptionUpdateManyWithoutPlanNestedInput = {
@@ -11835,6 +14725,20 @@ export namespace Prisma {
     deleteMany?: SubscriptionScalarWhereInput | SubscriptionScalarWhereInput[]
   }
 
+  export type plan_feature_mapperUpdateManyWithoutSubscriptionPlanNestedInput = {
+    create?: XOR<plan_feature_mapperCreateWithoutSubscriptionPlanInput, plan_feature_mapperUncheckedCreateWithoutSubscriptionPlanInput> | plan_feature_mapperCreateWithoutSubscriptionPlanInput[] | plan_feature_mapperUncheckedCreateWithoutSubscriptionPlanInput[]
+    connectOrCreate?: plan_feature_mapperCreateOrConnectWithoutSubscriptionPlanInput | plan_feature_mapperCreateOrConnectWithoutSubscriptionPlanInput[]
+    upsert?: plan_feature_mapperUpsertWithWhereUniqueWithoutSubscriptionPlanInput | plan_feature_mapperUpsertWithWhereUniqueWithoutSubscriptionPlanInput[]
+    createMany?: plan_feature_mapperCreateManySubscriptionPlanInputEnvelope
+    set?: plan_feature_mapperWhereUniqueInput | plan_feature_mapperWhereUniqueInput[]
+    disconnect?: plan_feature_mapperWhereUniqueInput | plan_feature_mapperWhereUniqueInput[]
+    delete?: plan_feature_mapperWhereUniqueInput | plan_feature_mapperWhereUniqueInput[]
+    connect?: plan_feature_mapperWhereUniqueInput | plan_feature_mapperWhereUniqueInput[]
+    update?: plan_feature_mapperUpdateWithWhereUniqueWithoutSubscriptionPlanInput | plan_feature_mapperUpdateWithWhereUniqueWithoutSubscriptionPlanInput[]
+    updateMany?: plan_feature_mapperUpdateManyWithWhereWithoutSubscriptionPlanInput | plan_feature_mapperUpdateManyWithWhereWithoutSubscriptionPlanInput[]
+    deleteMany?: plan_feature_mapperScalarWhereInput | plan_feature_mapperScalarWhereInput[]
+  }
+
   export type SubscriptionUncheckedUpdateManyWithoutPlanNestedInput = {
     create?: XOR<SubscriptionCreateWithoutPlanInput, SubscriptionUncheckedCreateWithoutPlanInput> | SubscriptionCreateWithoutPlanInput[] | SubscriptionUncheckedCreateWithoutPlanInput[]
     connectOrCreate?: SubscriptionCreateOrConnectWithoutPlanInput | SubscriptionCreateOrConnectWithoutPlanInput[]
@@ -11847,6 +14751,20 @@ export namespace Prisma {
     update?: SubscriptionUpdateWithWhereUniqueWithoutPlanInput | SubscriptionUpdateWithWhereUniqueWithoutPlanInput[]
     updateMany?: SubscriptionUpdateManyWithWhereWithoutPlanInput | SubscriptionUpdateManyWithWhereWithoutPlanInput[]
     deleteMany?: SubscriptionScalarWhereInput | SubscriptionScalarWhereInput[]
+  }
+
+  export type plan_feature_mapperUncheckedUpdateManyWithoutSubscriptionPlanNestedInput = {
+    create?: XOR<plan_feature_mapperCreateWithoutSubscriptionPlanInput, plan_feature_mapperUncheckedCreateWithoutSubscriptionPlanInput> | plan_feature_mapperCreateWithoutSubscriptionPlanInput[] | plan_feature_mapperUncheckedCreateWithoutSubscriptionPlanInput[]
+    connectOrCreate?: plan_feature_mapperCreateOrConnectWithoutSubscriptionPlanInput | plan_feature_mapperCreateOrConnectWithoutSubscriptionPlanInput[]
+    upsert?: plan_feature_mapperUpsertWithWhereUniqueWithoutSubscriptionPlanInput | plan_feature_mapperUpsertWithWhereUniqueWithoutSubscriptionPlanInput[]
+    createMany?: plan_feature_mapperCreateManySubscriptionPlanInputEnvelope
+    set?: plan_feature_mapperWhereUniqueInput | plan_feature_mapperWhereUniqueInput[]
+    disconnect?: plan_feature_mapperWhereUniqueInput | plan_feature_mapperWhereUniqueInput[]
+    delete?: plan_feature_mapperWhereUniqueInput | plan_feature_mapperWhereUniqueInput[]
+    connect?: plan_feature_mapperWhereUniqueInput | plan_feature_mapperWhereUniqueInput[]
+    update?: plan_feature_mapperUpdateWithWhereUniqueWithoutSubscriptionPlanInput | plan_feature_mapperUpdateWithWhereUniqueWithoutSubscriptionPlanInput[]
+    updateMany?: plan_feature_mapperUpdateManyWithWhereWithoutSubscriptionPlanInput | plan_feature_mapperUpdateManyWithWhereWithoutSubscriptionPlanInput[]
+    deleteMany?: plan_feature_mapperScalarWhereInput | plan_feature_mapperScalarWhereInput[]
   }
 
   export type SubscriptionPlanCreateNestedOneWithoutSubscriptionsInput = {
@@ -12107,6 +15025,86 @@ export namespace Prisma {
     update?: XOR<XOR<UsersUpdateToOneWithWhereWithoutCredit_transactionsInput, UsersUpdateWithoutCredit_transactionsInput>, UsersUncheckedUpdateWithoutCredit_transactionsInput>
   }
 
+  export type plan_feature_mapperCreateNestedManyWithoutApp_featuresInput = {
+    create?: XOR<plan_feature_mapperCreateWithoutApp_featuresInput, plan_feature_mapperUncheckedCreateWithoutApp_featuresInput> | plan_feature_mapperCreateWithoutApp_featuresInput[] | plan_feature_mapperUncheckedCreateWithoutApp_featuresInput[]
+    connectOrCreate?: plan_feature_mapperCreateOrConnectWithoutApp_featuresInput | plan_feature_mapperCreateOrConnectWithoutApp_featuresInput[]
+    createMany?: plan_feature_mapperCreateManyApp_featuresInputEnvelope
+    connect?: plan_feature_mapperWhereUniqueInput | plan_feature_mapperWhereUniqueInput[]
+  }
+
+  export type plan_feature_mapperUncheckedCreateNestedManyWithoutApp_featuresInput = {
+    create?: XOR<plan_feature_mapperCreateWithoutApp_featuresInput, plan_feature_mapperUncheckedCreateWithoutApp_featuresInput> | plan_feature_mapperCreateWithoutApp_featuresInput[] | plan_feature_mapperUncheckedCreateWithoutApp_featuresInput[]
+    connectOrCreate?: plan_feature_mapperCreateOrConnectWithoutApp_featuresInput | plan_feature_mapperCreateOrConnectWithoutApp_featuresInput[]
+    createMany?: plan_feature_mapperCreateManyApp_featuresInputEnvelope
+    connect?: plan_feature_mapperWhereUniqueInput | plan_feature_mapperWhereUniqueInput[]
+  }
+
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type plan_feature_mapperUpdateManyWithoutApp_featuresNestedInput = {
+    create?: XOR<plan_feature_mapperCreateWithoutApp_featuresInput, plan_feature_mapperUncheckedCreateWithoutApp_featuresInput> | plan_feature_mapperCreateWithoutApp_featuresInput[] | plan_feature_mapperUncheckedCreateWithoutApp_featuresInput[]
+    connectOrCreate?: plan_feature_mapperCreateOrConnectWithoutApp_featuresInput | plan_feature_mapperCreateOrConnectWithoutApp_featuresInput[]
+    upsert?: plan_feature_mapperUpsertWithWhereUniqueWithoutApp_featuresInput | plan_feature_mapperUpsertWithWhereUniqueWithoutApp_featuresInput[]
+    createMany?: plan_feature_mapperCreateManyApp_featuresInputEnvelope
+    set?: plan_feature_mapperWhereUniqueInput | plan_feature_mapperWhereUniqueInput[]
+    disconnect?: plan_feature_mapperWhereUniqueInput | plan_feature_mapperWhereUniqueInput[]
+    delete?: plan_feature_mapperWhereUniqueInput | plan_feature_mapperWhereUniqueInput[]
+    connect?: plan_feature_mapperWhereUniqueInput | plan_feature_mapperWhereUniqueInput[]
+    update?: plan_feature_mapperUpdateWithWhereUniqueWithoutApp_featuresInput | plan_feature_mapperUpdateWithWhereUniqueWithoutApp_featuresInput[]
+    updateMany?: plan_feature_mapperUpdateManyWithWhereWithoutApp_featuresInput | plan_feature_mapperUpdateManyWithWhereWithoutApp_featuresInput[]
+    deleteMany?: plan_feature_mapperScalarWhereInput | plan_feature_mapperScalarWhereInput[]
+  }
+
+  export type plan_feature_mapperUncheckedUpdateManyWithoutApp_featuresNestedInput = {
+    create?: XOR<plan_feature_mapperCreateWithoutApp_featuresInput, plan_feature_mapperUncheckedCreateWithoutApp_featuresInput> | plan_feature_mapperCreateWithoutApp_featuresInput[] | plan_feature_mapperUncheckedCreateWithoutApp_featuresInput[]
+    connectOrCreate?: plan_feature_mapperCreateOrConnectWithoutApp_featuresInput | plan_feature_mapperCreateOrConnectWithoutApp_featuresInput[]
+    upsert?: plan_feature_mapperUpsertWithWhereUniqueWithoutApp_featuresInput | plan_feature_mapperUpsertWithWhereUniqueWithoutApp_featuresInput[]
+    createMany?: plan_feature_mapperCreateManyApp_featuresInputEnvelope
+    set?: plan_feature_mapperWhereUniqueInput | plan_feature_mapperWhereUniqueInput[]
+    disconnect?: plan_feature_mapperWhereUniqueInput | plan_feature_mapperWhereUniqueInput[]
+    delete?: plan_feature_mapperWhereUniqueInput | plan_feature_mapperWhereUniqueInput[]
+    connect?: plan_feature_mapperWhereUniqueInput | plan_feature_mapperWhereUniqueInput[]
+    update?: plan_feature_mapperUpdateWithWhereUniqueWithoutApp_featuresInput | plan_feature_mapperUpdateWithWhereUniqueWithoutApp_featuresInput[]
+    updateMany?: plan_feature_mapperUpdateManyWithWhereWithoutApp_featuresInput | plan_feature_mapperUpdateManyWithWhereWithoutApp_featuresInput[]
+    deleteMany?: plan_feature_mapperScalarWhereInput | plan_feature_mapperScalarWhereInput[]
+  }
+
+  export type app_featuresCreateNestedOneWithoutPlan_feature_mapperInput = {
+    create?: XOR<app_featuresCreateWithoutPlan_feature_mapperInput, app_featuresUncheckedCreateWithoutPlan_feature_mapperInput>
+    connectOrCreate?: app_featuresCreateOrConnectWithoutPlan_feature_mapperInput
+    connect?: app_featuresWhereUniqueInput
+  }
+
+  export type SubscriptionPlanCreateNestedOneWithoutPlan_feature_mapperInput = {
+    create?: XOR<SubscriptionPlanCreateWithoutPlan_feature_mapperInput, SubscriptionPlanUncheckedCreateWithoutPlan_feature_mapperInput>
+    connectOrCreate?: SubscriptionPlanCreateOrConnectWithoutPlan_feature_mapperInput
+    connect?: SubscriptionPlanWhereUniqueInput
+  }
+
+  export type app_featuresUpdateOneRequiredWithoutPlan_feature_mapperNestedInput = {
+    create?: XOR<app_featuresCreateWithoutPlan_feature_mapperInput, app_featuresUncheckedCreateWithoutPlan_feature_mapperInput>
+    connectOrCreate?: app_featuresCreateOrConnectWithoutPlan_feature_mapperInput
+    upsert?: app_featuresUpsertWithoutPlan_feature_mapperInput
+    connect?: app_featuresWhereUniqueInput
+    update?: XOR<XOR<app_featuresUpdateToOneWithWhereWithoutPlan_feature_mapperInput, app_featuresUpdateWithoutPlan_feature_mapperInput>, app_featuresUncheckedUpdateWithoutPlan_feature_mapperInput>
+  }
+
+  export type SubscriptionPlanUpdateOneWithoutPlan_feature_mapperNestedInput = {
+    create?: XOR<SubscriptionPlanCreateWithoutPlan_feature_mapperInput, SubscriptionPlanUncheckedCreateWithoutPlan_feature_mapperInput>
+    connectOrCreate?: SubscriptionPlanCreateOrConnectWithoutPlan_feature_mapperInput
+    upsert?: SubscriptionPlanUpsertWithoutPlan_feature_mapperInput
+    disconnect?: SubscriptionPlanWhereInput | boolean
+    delete?: SubscriptionPlanWhereInput | boolean
+    connect?: SubscriptionPlanWhereUniqueInput
+    update?: XOR<XOR<SubscriptionPlanUpdateToOneWithWhereWithoutPlan_feature_mapperInput, SubscriptionPlanUpdateWithoutPlan_feature_mapperInput>, SubscriptionPlanUncheckedUpdateWithoutPlan_feature_mapperInput>
+  }
+
   export type NestedStringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -12119,6 +15117,20 @@ export namespace Prisma {
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     not?: NestedStringFilter<$PrismaModel> | string
+  }
+
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -12143,18 +15155,15 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
-  export type NestedStringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  export type NestedDecimalNullableFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel> | null
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalNullableFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string | null
   }
 
   export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
@@ -12173,14 +15182,42 @@ export namespace Prisma {
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
   }
-  export type NestedJsonFilter<$PrismaModel = never> =
-    | PatchUndefined<
-        Either<Required<NestedJsonFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>,
-        Required<NestedJsonFilterBase<$PrismaModel>>
-      >
-    | OptionalFlat<Omit<Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>
 
-  export type NestedJsonFilterBase<$PrismaModel = never> = {
+  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+  export type NestedJsonNullableFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<NestedJsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>,
+        Required<NestedJsonNullableFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>
+
+  export type NestedJsonNullableFilterBase<$PrismaModel = never> = {
     equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
     path?: string[]
     mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
@@ -12238,32 +15275,20 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
-  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+  export type NestedDecimalNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel> | null
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalNullableWithAggregatesFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string | null
     _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedStringNullableFilter<$PrismaModel>
-    _max?: NestedStringNullableFilter<$PrismaModel>
-  }
-
-  export type NestedIntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+    _avg?: NestedDecimalNullableFilter<$PrismaModel>
+    _sum?: NestedDecimalNullableFilter<$PrismaModel>
+    _min?: NestedDecimalNullableFilter<$PrismaModel>
+    _max?: NestedDecimalNullableFilter<$PrismaModel>
   }
 
   export type NestedEnumSubscriptionStatusFilter<$PrismaModel = never> = {
@@ -12311,6 +15336,29 @@ export namespace Prisma {
   export type NestedBoolFilter<$PrismaModel = never> = {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel>
     not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+  export type NestedJsonFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<NestedJsonFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>,
+        Required<NestedJsonFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>
+
+  export type NestedJsonFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
   export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
@@ -12379,28 +15427,32 @@ export namespace Prisma {
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
   }
-  export type NestedJsonNullableFilter<$PrismaModel = never> =
-    | PatchUndefined<
-        Either<Required<NestedJsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>,
-        Required<NestedJsonNullableFilterBase<$PrismaModel>>
-      >
-    | OptionalFlat<Omit<Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>
 
-  export type NestedJsonNullableFilterBase<$PrismaModel = never> = {
-    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-    path?: string[]
-    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
-    string_contains?: string | StringFieldRefInput<$PrismaModel>
-    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
-    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
-    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
   export type SubscriptionCreateWithoutPlanInput = {
@@ -12439,6 +15491,28 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type plan_feature_mapperCreateWithoutSubscriptionPlanInput = {
+    id?: string
+    custom_limit?: number | null
+    app_features: app_featuresCreateNestedOneWithoutPlan_feature_mapperInput
+  }
+
+  export type plan_feature_mapperUncheckedCreateWithoutSubscriptionPlanInput = {
+    id?: string
+    feature_id: string
+    custom_limit?: number | null
+  }
+
+  export type plan_feature_mapperCreateOrConnectWithoutSubscriptionPlanInput = {
+    where: plan_feature_mapperWhereUniqueInput
+    create: XOR<plan_feature_mapperCreateWithoutSubscriptionPlanInput, plan_feature_mapperUncheckedCreateWithoutSubscriptionPlanInput>
+  }
+
+  export type plan_feature_mapperCreateManySubscriptionPlanInputEnvelope = {
+    data: plan_feature_mapperCreateManySubscriptionPlanInput | plan_feature_mapperCreateManySubscriptionPlanInput[]
+    skipDuplicates?: boolean
+  }
+
   export type SubscriptionUpsertWithWhereUniqueWithoutPlanInput = {
     where: SubscriptionWhereUniqueInput
     update: XOR<SubscriptionUpdateWithoutPlanInput, SubscriptionUncheckedUpdateWithoutPlanInput>
@@ -12472,28 +15546,58 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Subscription"> | Date | string
   }
 
+  export type plan_feature_mapperUpsertWithWhereUniqueWithoutSubscriptionPlanInput = {
+    where: plan_feature_mapperWhereUniqueInput
+    update: XOR<plan_feature_mapperUpdateWithoutSubscriptionPlanInput, plan_feature_mapperUncheckedUpdateWithoutSubscriptionPlanInput>
+    create: XOR<plan_feature_mapperCreateWithoutSubscriptionPlanInput, plan_feature_mapperUncheckedCreateWithoutSubscriptionPlanInput>
+  }
+
+  export type plan_feature_mapperUpdateWithWhereUniqueWithoutSubscriptionPlanInput = {
+    where: plan_feature_mapperWhereUniqueInput
+    data: XOR<plan_feature_mapperUpdateWithoutSubscriptionPlanInput, plan_feature_mapperUncheckedUpdateWithoutSubscriptionPlanInput>
+  }
+
+  export type plan_feature_mapperUpdateManyWithWhereWithoutSubscriptionPlanInput = {
+    where: plan_feature_mapperScalarWhereInput
+    data: XOR<plan_feature_mapperUpdateManyMutationInput, plan_feature_mapperUncheckedUpdateManyWithoutSubscriptionPlanInput>
+  }
+
+  export type plan_feature_mapperScalarWhereInput = {
+    AND?: plan_feature_mapperScalarWhereInput | plan_feature_mapperScalarWhereInput[]
+    OR?: plan_feature_mapperScalarWhereInput[]
+    NOT?: plan_feature_mapperScalarWhereInput | plan_feature_mapperScalarWhereInput[]
+    id?: UuidFilter<"plan_feature_mapper"> | string
+    plan_id?: StringNullableFilter<"plan_feature_mapper"> | string | null
+    feature_id?: UuidFilter<"plan_feature_mapper"> | string
+    custom_limit?: IntNullableFilter<"plan_feature_mapper"> | number | null
+  }
+
   export type SubscriptionPlanCreateWithoutSubscriptionsInput = {
     id?: string
     name: string
-    description: string
-    features: JsonNullValueInput | InputJsonValue
+    description?: string | null
+    features?: NullableJsonNullValueInput | InputJsonValue
     countryCode: string
     amount: number
     currency?: string
     createdAt?: Date | string
     billingcycle?: string | null
+    offer_price?: Decimal | DecimalJsLike | number | string | null
+    plan_feature_mapper?: plan_feature_mapperCreateNestedManyWithoutSubscriptionPlanInput
   }
 
   export type SubscriptionPlanUncheckedCreateWithoutSubscriptionsInput = {
     id?: string
     name: string
-    description: string
-    features: JsonNullValueInput | InputJsonValue
+    description?: string | null
+    features?: NullableJsonNullValueInput | InputJsonValue
     countryCode: string
     amount: number
     currency?: string
     createdAt?: Date | string
     billingcycle?: string | null
+    offer_price?: Decimal | DecimalJsLike | number | string | null
+    plan_feature_mapper?: plan_feature_mapperUncheckedCreateNestedManyWithoutSubscriptionPlanInput
   }
 
   export type SubscriptionPlanCreateOrConnectWithoutSubscriptionsInput = {
@@ -12556,25 +15660,29 @@ export namespace Prisma {
   export type SubscriptionPlanUpdateWithoutSubscriptionsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    features?: JsonNullValueInput | InputJsonValue
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    features?: NullableJsonNullValueInput | InputJsonValue
     countryCode?: StringFieldUpdateOperationsInput | string
     amount?: IntFieldUpdateOperationsInput | number
     currency?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     billingcycle?: NullableStringFieldUpdateOperationsInput | string | null
+    offer_price?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    plan_feature_mapper?: plan_feature_mapperUpdateManyWithoutSubscriptionPlanNestedInput
   }
 
   export type SubscriptionPlanUncheckedUpdateWithoutSubscriptionsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    features?: JsonNullValueInput | InputJsonValue
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    features?: NullableJsonNullValueInput | InputJsonValue
     countryCode?: StringFieldUpdateOperationsInput | string
     amount?: IntFieldUpdateOperationsInput | number
     currency?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     billingcycle?: NullableStringFieldUpdateOperationsInput | string | null
+    offer_price?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    plan_feature_mapper?: plan_feature_mapperUncheckedUpdateManyWithoutSubscriptionPlanNestedInput
   }
 
   export type UsersUpsertWithoutSubscriptionsInput = {
@@ -13117,6 +16225,160 @@ export namespace Prisma {
     analysisHistory?: UserAnalysisHistoryUncheckedUpdateManyWithoutUserNestedInput
   }
 
+  export type plan_feature_mapperCreateWithoutApp_featuresInput = {
+    id?: string
+    custom_limit?: number | null
+    SubscriptionPlan?: SubscriptionPlanCreateNestedOneWithoutPlan_feature_mapperInput
+  }
+
+  export type plan_feature_mapperUncheckedCreateWithoutApp_featuresInput = {
+    id?: string
+    plan_id?: string | null
+    custom_limit?: number | null
+  }
+
+  export type plan_feature_mapperCreateOrConnectWithoutApp_featuresInput = {
+    where: plan_feature_mapperWhereUniqueInput
+    create: XOR<plan_feature_mapperCreateWithoutApp_featuresInput, plan_feature_mapperUncheckedCreateWithoutApp_featuresInput>
+  }
+
+  export type plan_feature_mapperCreateManyApp_featuresInputEnvelope = {
+    data: plan_feature_mapperCreateManyApp_featuresInput | plan_feature_mapperCreateManyApp_featuresInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type plan_feature_mapperUpsertWithWhereUniqueWithoutApp_featuresInput = {
+    where: plan_feature_mapperWhereUniqueInput
+    update: XOR<plan_feature_mapperUpdateWithoutApp_featuresInput, plan_feature_mapperUncheckedUpdateWithoutApp_featuresInput>
+    create: XOR<plan_feature_mapperCreateWithoutApp_featuresInput, plan_feature_mapperUncheckedCreateWithoutApp_featuresInput>
+  }
+
+  export type plan_feature_mapperUpdateWithWhereUniqueWithoutApp_featuresInput = {
+    where: plan_feature_mapperWhereUniqueInput
+    data: XOR<plan_feature_mapperUpdateWithoutApp_featuresInput, plan_feature_mapperUncheckedUpdateWithoutApp_featuresInput>
+  }
+
+  export type plan_feature_mapperUpdateManyWithWhereWithoutApp_featuresInput = {
+    where: plan_feature_mapperScalarWhereInput
+    data: XOR<plan_feature_mapperUpdateManyMutationInput, plan_feature_mapperUncheckedUpdateManyWithoutApp_featuresInput>
+  }
+
+  export type app_featuresCreateWithoutPlan_feature_mapperInput = {
+    id?: string
+    title: string
+    limit?: number | null
+    description?: string | null
+  }
+
+  export type app_featuresUncheckedCreateWithoutPlan_feature_mapperInput = {
+    id?: string
+    title: string
+    limit?: number | null
+    description?: string | null
+  }
+
+  export type app_featuresCreateOrConnectWithoutPlan_feature_mapperInput = {
+    where: app_featuresWhereUniqueInput
+    create: XOR<app_featuresCreateWithoutPlan_feature_mapperInput, app_featuresUncheckedCreateWithoutPlan_feature_mapperInput>
+  }
+
+  export type SubscriptionPlanCreateWithoutPlan_feature_mapperInput = {
+    id?: string
+    name: string
+    description?: string | null
+    features?: NullableJsonNullValueInput | InputJsonValue
+    countryCode: string
+    amount: number
+    currency?: string
+    createdAt?: Date | string
+    billingcycle?: string | null
+    offer_price?: Decimal | DecimalJsLike | number | string | null
+    subscriptions?: SubscriptionCreateNestedManyWithoutPlanInput
+  }
+
+  export type SubscriptionPlanUncheckedCreateWithoutPlan_feature_mapperInput = {
+    id?: string
+    name: string
+    description?: string | null
+    features?: NullableJsonNullValueInput | InputJsonValue
+    countryCode: string
+    amount: number
+    currency?: string
+    createdAt?: Date | string
+    billingcycle?: string | null
+    offer_price?: Decimal | DecimalJsLike | number | string | null
+    subscriptions?: SubscriptionUncheckedCreateNestedManyWithoutPlanInput
+  }
+
+  export type SubscriptionPlanCreateOrConnectWithoutPlan_feature_mapperInput = {
+    where: SubscriptionPlanWhereUniqueInput
+    create: XOR<SubscriptionPlanCreateWithoutPlan_feature_mapperInput, SubscriptionPlanUncheckedCreateWithoutPlan_feature_mapperInput>
+  }
+
+  export type app_featuresUpsertWithoutPlan_feature_mapperInput = {
+    update: XOR<app_featuresUpdateWithoutPlan_feature_mapperInput, app_featuresUncheckedUpdateWithoutPlan_feature_mapperInput>
+    create: XOR<app_featuresCreateWithoutPlan_feature_mapperInput, app_featuresUncheckedCreateWithoutPlan_feature_mapperInput>
+    where?: app_featuresWhereInput
+  }
+
+  export type app_featuresUpdateToOneWithWhereWithoutPlan_feature_mapperInput = {
+    where?: app_featuresWhereInput
+    data: XOR<app_featuresUpdateWithoutPlan_feature_mapperInput, app_featuresUncheckedUpdateWithoutPlan_feature_mapperInput>
+  }
+
+  export type app_featuresUpdateWithoutPlan_feature_mapperInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    limit?: NullableIntFieldUpdateOperationsInput | number | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type app_featuresUncheckedUpdateWithoutPlan_feature_mapperInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    limit?: NullableIntFieldUpdateOperationsInput | number | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type SubscriptionPlanUpsertWithoutPlan_feature_mapperInput = {
+    update: XOR<SubscriptionPlanUpdateWithoutPlan_feature_mapperInput, SubscriptionPlanUncheckedUpdateWithoutPlan_feature_mapperInput>
+    create: XOR<SubscriptionPlanCreateWithoutPlan_feature_mapperInput, SubscriptionPlanUncheckedCreateWithoutPlan_feature_mapperInput>
+    where?: SubscriptionPlanWhereInput
+  }
+
+  export type SubscriptionPlanUpdateToOneWithWhereWithoutPlan_feature_mapperInput = {
+    where?: SubscriptionPlanWhereInput
+    data: XOR<SubscriptionPlanUpdateWithoutPlan_feature_mapperInput, SubscriptionPlanUncheckedUpdateWithoutPlan_feature_mapperInput>
+  }
+
+  export type SubscriptionPlanUpdateWithoutPlan_feature_mapperInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    features?: NullableJsonNullValueInput | InputJsonValue
+    countryCode?: StringFieldUpdateOperationsInput | string
+    amount?: IntFieldUpdateOperationsInput | number
+    currency?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    billingcycle?: NullableStringFieldUpdateOperationsInput | string | null
+    offer_price?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    subscriptions?: SubscriptionUpdateManyWithoutPlanNestedInput
+  }
+
+  export type SubscriptionPlanUncheckedUpdateWithoutPlan_feature_mapperInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    features?: NullableJsonNullValueInput | InputJsonValue
+    countryCode?: StringFieldUpdateOperationsInput | string
+    amount?: IntFieldUpdateOperationsInput | number
+    currency?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    billingcycle?: NullableStringFieldUpdateOperationsInput | string | null
+    offer_price?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    subscriptions?: SubscriptionUncheckedUpdateManyWithoutPlanNestedInput
+  }
+
   export type SubscriptionCreateManyPlanInput = {
     id?: string
     userId: string
@@ -13128,6 +16390,12 @@ export namespace Prisma {
     countryCode: string
     createdAt?: Date | string
     updatedAt?: Date | string
+  }
+
+  export type plan_feature_mapperCreateManySubscriptionPlanInput = {
+    id?: string
+    feature_id: string
+    custom_limit?: number | null
   }
 
   export type SubscriptionUpdateWithoutPlanInput = {
@@ -13167,6 +16435,24 @@ export namespace Prisma {
     countryCode?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type plan_feature_mapperUpdateWithoutSubscriptionPlanInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    custom_limit?: NullableIntFieldUpdateOperationsInput | number | null
+    app_features?: app_featuresUpdateOneRequiredWithoutPlan_feature_mapperNestedInput
+  }
+
+  export type plan_feature_mapperUncheckedUpdateWithoutSubscriptionPlanInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    feature_id?: StringFieldUpdateOperationsInput | string
+    custom_limit?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type plan_feature_mapperUncheckedUpdateManyWithoutSubscriptionPlanInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    feature_id?: StringFieldUpdateOperationsInput | string
+    custom_limit?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type ResumeCreateManyUserInput = {
@@ -13335,6 +16621,30 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     expiry_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type plan_feature_mapperCreateManyApp_featuresInput = {
+    id?: string
+    plan_id?: string | null
+    custom_limit?: number | null
+  }
+
+  export type plan_feature_mapperUpdateWithoutApp_featuresInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    custom_limit?: NullableIntFieldUpdateOperationsInput | number | null
+    SubscriptionPlan?: SubscriptionPlanUpdateOneWithoutPlan_feature_mapperNestedInput
+  }
+
+  export type plan_feature_mapperUncheckedUpdateWithoutApp_featuresInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    plan_id?: NullableStringFieldUpdateOperationsInput | string | null
+    custom_limit?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type plan_feature_mapperUncheckedUpdateManyWithoutApp_featuresInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    plan_id?: NullableStringFieldUpdateOperationsInput | string | null
+    custom_limit?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
 

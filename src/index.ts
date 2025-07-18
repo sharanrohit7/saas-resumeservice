@@ -3,16 +3,16 @@ import { createClient } from "redis";
 import app from "./app"
 import { fetchAndExtractPdfText } from "./utils/fileReader";
 import { getUserCreditsBalance } from "./controller/plans.controller";
-import { getUserCredits } from "./services/plans.service";
+import { getAllPlans, getUserCredits } from "./services/plans.service";
 // import { db } from "./config/db";
 
 const port = process.env.PORT || 8080;
-// (async () => {
-//   // const url = "https://lineupsapk.blob.core.windows.net/apk/8c5e466c-4b3c-42e0-8da3-399be0e3664c-ResumeM5-1745489606857-yi7vkr.pdf";
+(async () => {
+  // const url = "https://lineupsapk.blob.core.windows.net/apk/8c5e466c-4b3c-42e0-8da3-399be0e3664c-ResumeM5-1745489606857-yi7vkr.pdf";
 
-//   const text = await getUserCredits("e9fd660a-fb57-4582-aa3c-43281ddca092");
-//   console.log("📝 Extracted Text:\n", text);
-// })();
+  const text = await getAllPlans();
+  console.log("📝 Extracted Text:\n", text);
+})();
 
 // const client = createClient({
 //   // Your Redis connection details (host, port, etc.)

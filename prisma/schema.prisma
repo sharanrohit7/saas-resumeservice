@@ -9,16 +9,18 @@ datasource db {
 }
 
 model SubscriptionPlan {
-  id            String         @id @default(uuid())
-  name          String         @unique
-  description   String
-  features      Json
-  countryCode   String
-  amount        Int
-  currency      String         @default("INR")
-  createdAt     DateTime       @default(now())
-  billingcycle  String?
-  subscriptions Subscription[]
+  id                  String                @id @default(uuid())
+  name                String                @unique
+  description         String?
+  features            Json?
+  countryCode         String
+  amount              Int
+  currency            String                @default("INR")
+  createdAt           DateTime              @default(now())
+  billingcycle        String?
+  offer_price         Decimal?              @db.Decimal
+  subscriptions       Subscription[]
+  plan_feature_mapper plan_feature_mapper[]
 }
 
 model Subscription {
@@ -122,6 +124,25 @@ model credit_transactions {
 
   @@index([created_at], map: "idx_credit_transactions_created")
   @@index([user_id], map: "idx_credit_transactions_user")
+}
+
+model app_features {
+  id                  String                @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  title               String
+  limit               Int?
+  description         String?
+  plan_feature_mapper plan_feature_mapper[]
+}
+
+model plan_feature_mapper {
+  id               String            @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  plan_id          String?
+  feature_id       String            @db.Uuid
+  custom_limit     Int?
+  app_features     app_features      @relation(fields: [feature_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_feature")
+  SubscriptionPlan SubscriptionPlan? @relation(fields: [plan_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_plan")
+
+  @@unique([plan_id, feature_id], map: "unique_plan_feature")
 }
 
 enum AnalysisType {
