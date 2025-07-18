@@ -47,7 +47,6 @@ export async function upsertUser(data: UpsertUserParams) {
       const existingSubscription = await prisma.subscription.findFirst({
         where: {
           userId: user.id,
-          planId: 'basic_monthly',
         }
       });
 

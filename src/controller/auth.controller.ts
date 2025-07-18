@@ -24,7 +24,6 @@ export async function upsertUserController(req: Request, res: Response) {
   
       // You could verify the token here with Google or Firebase if needed
       // const decoded = await verifyGoogleToken(authToken); // Optional step
-  
       const user = await upsertUser({
         email,
         refreshToken,

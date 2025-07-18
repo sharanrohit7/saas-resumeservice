@@ -45,11 +45,13 @@ export const analyzeResume = async (
   if (query.queryType === "BASIC" && promptLength > 4000) {
     return { error: "Prompt length exceeds limit" };
   }
-
+  if (query.queryType === "PRO" && promptLength > 9000) {
+    return { error: "Prompt length exceeds limit" };
+  }
   console.log("Prompt length:", promptLength);
 
   // Estimate cost
-  const estimation = await CreditEstimation.estimate(userId, query.queryType, promptLength);
+  const estimation = await CreditEstimation.estimate(userId, query.queryType, 0);
 
   if (!estimation.canProceed) {
     return { error: estimation.message };

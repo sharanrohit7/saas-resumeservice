@@ -63,7 +63,7 @@ export const getResumeContentById = async (id: string) => {
     try {
       const resume = await prisma.resume.findMany({
         where: { userId: id },
-        select: { title: true, createdAt: true, resume_url:true}
+        select: { title: true, createdAt: true, resume_url:true, id: true}
       });
   
       if (!resume) {

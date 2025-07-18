@@ -1,3 +1,4 @@
+import { UUID } from "crypto";
 import { PrismaClient } from "../../prisma/generated/prisma";
 
 
@@ -47,3 +48,24 @@ export async function getRecentTop5Scores(userId: string) {
   });
 }
 
+
+
+export const getDetailedAnalysisService = async (analysisId: string, user_id: string) => {
+  // Basic validation: check UUID format
+  if (!isValidUUID(analysisId) ) {
+    throw new Error('Invalid UUID format');
+  }
+
+  const result = await prisma.resume_analysis.findFirst({
+    where: {
+      id: analysisId,
+      user_id,
+    },
+  });
+
+  return result;
+};
+
+// UUID checker (importable)
+const isValidUUID = (value: string) =>
+  /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(value);
